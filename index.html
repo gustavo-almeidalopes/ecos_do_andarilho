@@ -16,8 +16,7 @@
   <link rel="preload" href="css/style.css" as="style">
 
   <!-- Fontes do Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -45,16 +44,13 @@
   <div class="nav-wrapper">
     <nav id="navbar">
       <div class="nav-top-row">
-        <a href="javascript:void(0)" class="logo">ECOS<span>.</span></a>
-        <div class="mobile-nav-actions">
-          <a href="game/jogo.html" class="btn-3d mobile-btn-nav">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            JOGAR
-          </a>
-          <button id="menu-toggle" class="menu-btn-retro">MENU</button>
-        </div>
+        <a href="#" class="logo">ECOS<span>.</span></a>
+        <a href="game/jogo.html" class="btn-3d mobile-btn-nav">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          JOGAR
+        </a>
       </div>
 
       <div class="nav-links">
@@ -74,7 +70,7 @@
 
     <div class="hero-content parallax-hero">
       <div class="hero-badge reveal-hero floating">PROJETO ACADÉMICO - CONSTRUCT 3</div>
-      <h1 id="hero-title">ECOS DO <br class="mobile-br">ANDARILHO</h1>
+      <h1 id="hero-title">ECOS DO ANDARILHO</h1>
       <p class="reveal-hero">Um jogo de plataformas e ritmo desenvolvido integralmente na engine <strong>Construct
           3</strong>. Sincronize os seus saltos com a música e derrote os inimigos no tempo certo!</p>
 
@@ -118,10 +114,10 @@
             REC
           </div>
 
-          <div class="btn-3d"
-            style="position: relative; z-index: 2; border-radius: 12px; width: clamp(80px, 15vw, 100px); height: clamp(60px, 12vw, 80px); padding: 0;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff" style="margin-left: 6px;">
-              <path d="M8 4 h4 v4 h4 v4 h4 v4 h-4 v4 h-4 v4 h-4 Z" />
+          <div class="btn-3d anime-pulse-btn"
+            style="position: relative; z-index: 2; border-radius: 50%; width: clamp(70px, 15vw, 90px); height: clamp(70px, 15vw, 90px); padding: 0;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="#fff" style="margin-left: 6px;">
+              <path d="M8 5v14l11-7z" />
             </svg>
           </div>
         </div>
@@ -190,11 +186,11 @@
 
       <div class="chars-grid">
         <!-- Herói 1 -->
-        <div class="char-card tilt-card gs-stagger-up">
+        <div class="char-card tilt-card gs-stagger-up vertical-parallax" data-speed="0.05">
           <div class="char-avatar anime-avatar"
             style="border-color: var(--accent); background-image: url('images/chars/personagem1.png'); background-size: cover; background-position: center; image-rendering: pixelated;">
           </div>
-          <h3 class="pixel-font" style="color: var(--accent);">Zick</h3>
+          <h3 class="pixel-font" style="color: var(--accent);">Kaelen</h3>
           <div class="char-class" style="color: var(--accent); border-color: var(--accent);">O SALTEADOR</div>
           <p class="char-quote">"Saltar em cima dos inimigos no ritmo certo? Deixa comigo!"</p>
           <div class="char-lore">
@@ -204,11 +200,11 @@
         </div>
 
         <!-- Herói 2 -->
-        <div class="char-card tilt-card gs-stagger-up">
+        <div class="char-card tilt-card gs-stagger-up vertical-parallax" data-speed="0.1">
           <div class="char-avatar anime-avatar"
             style="border-color: var(--sky-dark); background-image: url('images/chars/personagem2.png'); background-size: cover; background-position: center; image-rendering: pixelated;">
           </div>
-          <h3 class="pixel-font" style="color: var(--sky-dark);">Roach</h3>
+          <h3 class="pixel-font" style="color: var(--sky-dark);">Lyra</h3>
           <div class="char-class" style="color: var(--sky-dark); border-color: var(--sky-dark);">TECELÃ DAS NUVENS</div>
           <p class="char-quote">"O vento sopra sempre no andamento perfeito da música."</p>
           <div class="char-lore">
@@ -218,31 +214,17 @@
         </div>
 
         <!-- Herói 3 -->
-        <div class="char-card tilt-card gs-stagger-up">
+        <div class="char-card tilt-card gs-stagger-up vertical-parallax" data-speed="0.15">
           <div class="char-avatar anime-avatar"
             style="border-color: var(--grass-dark); background-image: url('images/chars/personagem3.png'); background-size: cover; background-position: center; image-rendering: pixelated;">
           </div>
-          <h3 class="pixel-font" style="color: var(--grass-dark);">Tides</h3>
+          <h3 class="pixel-font" style="color: var(--grass-dark);">Grom</h3>
           <div class="char-class" style="color: var(--grass-dark); border-color: var(--grass-dark);">O GUARDIÃO DE PEDRA
           </div>
           <p class="char-quote">"As montanhas não recuam e eu também não!"</p>
           <div class="char-lore">
-            <p>O "Tank" do grupo. Tires possui uma variável booleana de <strong>Shield</strong> que absorve um golpe.
+            <p>O "Tank" do grupo. Grom possui uma variável booleana de <strong>Shield</strong> que absorve um golpe.
               Quando danificado, a sua *Animation* transita para um estado enfraquecido.</p>
-          </div>
-        </div>
-
-        <!-- Herói 4 -->
-        <div class="char-card tilt-card gs-stagger-up">
-          <div class="char-avatar anime-avatar"
-            style="border-color: var(--gold); background-image: url('images/chars/personagem4.png'); background-size: cover; background-position: center; image-rendering: pixelated;">
-          </div>
-          <h3 class="pixel-font" style="color: var(--gold);">Virtual Guy</h3>
-          <div class="char-class" style="color: var(--gold); border-color: var(--gold);">O INFILTRADOR DIGITAL</div>
-          <p class="char-quote">"Nenhum sistema é fechado o suficiente se souber a palavra-passe!"</p>
-          <div class="char-lore">
-            <p>O mestre da tecnologia. Virtual Guy utiliza mecânicas de <strong>Hacking</strong> que lhe permitem
-              contornar obstáculos e manipular elementos do cenário a seu favor.</p>
           </div>
         </div>
       </div>
@@ -336,9 +318,8 @@
         <p style="margin-top: 15px; font-weight: 500; font-size: 18px;">Professor, deixe aqui o seu feedback técnico e a
           nota final para o protótipo jogável.</p>
         <form class="form-group"
-          action="mailto:email1@exemplo.com,email2@exemplo.com?subject=Avaliação: Ecos do Andarilho" method="POST"
-          enctype="text/plain">
-          <textarea name="body"
+          onsubmit="event.preventDefault(); alert('Feedback enviado com sucesso! Muito obrigado pela avaliação.');">
+          <textarea
             placeholder="> Insira os seus comentários detalhados sobre a programação, game design, interatividade e arte aqui..._"
             required></textarea>
           <button type="submit" class="btn-3d anime-pulse-btn"
@@ -428,10 +409,7 @@
           </div>
           <h4 class="pixel-font">Gustavo Lopes - RGM: 34283008</h4>
           <span>UX/UI Designer</span>
-          <p>Desenvolvedor web responsável pela Landing Page oficial de *Ecos do Andarilho*, focando em responsividade,
-            acessibilidade e performance. Estruturou o front-end com HTML, CSS e JavaScript utilizando design Neo-Retro.
-            Também auxiliou na lógica do jogo e liderou o versionamento de código, gestão do repositório via GitHub e
-            elaboração detalhada da documentação técnica e estrutural do projeto.</p>
+          <p>Desenvolvedor web responsável pela Landing Page oficial de *Ecos do Andarilho*, focando em responsividade, acessibilidade e performance. Estruturou o front-end com HTML, CSS e JavaScript utilizando design Neo-Retro. Também auxiliou na lógica do jogo e liderou o versionamento de código, gestão do repositório via GitHub e elaboração detalhada da documentação técnica e estrutural do projeto.</p>
           <div class="dev-links" style="display: flex; gap: 12px; flex-direction: column; margin-top: 30px;">
             <a href="https://behance.net/" target="_blank" class="btn-3d btn-secondary full"
               style="margin-bottom: 0; padding: 12px;">PORTFÓLIO</a>
@@ -447,10 +425,7 @@
           </div>
           <h4 class="pixel-font">Erick Oliveira - RGM: 40277704</h4>
           <span>Desenvolvedor do Jogo</span>
-          <p>Engenheiro principal do jogo, responsável pela estruturação lógica na engine Construct 3. Criou e
-            configurou os mapas, focando na integração fluida de fases e progressão balanceada. Desenvolveu os complexos
-            sistemas de física, movimentação e animação de sprites, assegurando otimização de performance e uma
-            jogabilidade consistente, livre de quebras de frame rate durante a experiência do usuário.</p>
+          <p>Engenheiro principal do jogo, responsável pela estruturação lógica na engine Construct 3. Criou e configurou os mapas, focando na integração fluida de fases e progressão balanceada. Desenvolveu os complexos sistemas de física, movimentação e animação de sprites, assegurando otimização de performance e uma jogabilidade consistente, livre de quebras de frame rate durante a experiência do usuário.</p>
           <div class="dev-links" style="display: flex; gap: 12px; flex-direction: column; margin-top: 30px;">
             <a href="https://behance.net/" target="_blank" class="btn-3d btn-secondary full"
               style="margin-bottom: 0; padding: 12px;">PORTFÓLIO</a>
@@ -503,5 +478,4 @@
     </div>
   </footer>
 </body>
-
 </html>
