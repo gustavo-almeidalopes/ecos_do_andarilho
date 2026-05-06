@@ -349,6 +349,7 @@
     .bg-forest { background: linear-gradient(to bottom, var(--sky-dark) 40%, var(--grass-dark) 40%); }
     .bg-ruins { background: linear-gradient(to bottom, var(--brown) 50%, var(--stone-dark) 50%); }
     .bg-clouds { background: linear-gradient(to bottom, var(--sky-light) 60%, #FFF 60%); }
+    .bg-lava { background: linear-gradient(to bottom, #7C2D12 45%, #F97316 45%); }
     .bg-boss { background: linear-gradient(to bottom, var(--accent-shadow) 50%, #111 50%); }
     .gallery-bg { position: absolute; top: -20%; left: -20%; width: 140%; height: 140%; z-index: -1; background-size: cover; background-position: center; opacity: 0.9;}
 
@@ -387,8 +388,7 @@
     .faq-item.active .faq-icon { transform: rotate(135deg) translateY(-4px); background: var(--grass-dark); box-shadow: 0 0 0 var(--brown-dark); }
     
     .project-media-box { background: var(--bg-panel); border: 8px solid var(--brown-dark); padding: 30px; border-radius: 36px; box-shadow: inset 0 0 0 8px var(--stone), 12px 12px 0 rgba(0,0,0,0.2); }
-    .project-cover { background: linear-gradient(135deg, var(--sky) 0%, var(--sky-dark) 100%); height: clamp(250px, 30vw, 300px); border: 6px solid var(--brown-dark); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; background-size: cover; background-position: center; box-shadow: inset 0 0 0 6px rgba(255,255,255,0.2); overflow: hidden; transition: transform 0.4s; position: relative;}
-    .project-cover::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 30%; background: var(--grass-dark); border-top: 4px solid #000; }
+    .project-cover { height: clamp(280px, 35vw, 380px); border: 6px solid var(--brown-dark); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #0F172A; box-shadow: inset 0 0 0 6px rgba(255,255,255,0.2); overflow: hidden; transition: transform 0.4s; position: relative;}
     .project-cover:hover { transform: scale(1.03); border-color: var(--gold); }
 
     /* --- DEVS SECTION --- */
