@@ -465,6 +465,15 @@
       letter-spacing: -2px;
       display: inline-block;
       line-height: 1.1;
+      /* Compatibilidade cross-browser (Safari, Firefox, iOS) */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Ocultar o BR no desktop — white-space: nowrap já mantém tudo numa linha */
+    #hero h1 .mobile-br {
+      display: none;
     }
 
     .char {
@@ -1591,7 +1600,7 @@
       h4,
       .pixel-font {
         overflow-wrap: break-word;
-        line-break: anywhere;
+        /* line-break: anywhere removido — causava quebra no botão MENU */
       }
 
       .section-title {
@@ -1626,6 +1635,8 @@
         min-height: auto;
         background: var(--grass);
         border-color: var(--brown-dark);
+        /* Garante que o botão MENU não seja cortado */
+        overflow: visible;
       }
 
       .nav-top-row {
@@ -1670,10 +1681,12 @@
       }
 
       .menu-btn-retro {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         font-family: 'Press Start 2P';
         font-size: 10px;
-        padding: 12px;
+        padding: 12px 14px;
         border: 3px solid var(--brown-dark);
         border-radius: 12px;
         background: #FFF;
@@ -1681,6 +1694,13 @@
         box-shadow: 0 4px 0 var(--brown-dark);
         cursor: pointer;
         transition: transform 0.1s;
+        white-space: nowrap;
+        /* Garantir visibilidade */
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+        z-index: 10;
+        flex-shrink: 0;
       }
 
       .menu-btn-retro:active {
@@ -1792,11 +1812,20 @@
       }
 
       #hero h1 {
-        font-size: 26px;
+        font-size: 28px;
         margin-bottom: 20px;
-        line-height: 1.4;
-        display: inline-block;
-        white-space: normal;
+        line-height: 1.5;
+        display: block;
+        /* Impede quebra aleatória — só o BR explícito vai quebrar */
+        white-space: nowrap;
+        /* Ajuste de escala automático no iOS/Safari */
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      /* Mostrar o BR de quebra controlada no mobile */
+      #hero h1 .mobile-br {
+        display: block;
       }
 
       .hero-ctas {

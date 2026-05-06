@@ -119,58 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     easing: 'easeInQuad'
   }, '-=400');
 
-  // Botões Magnéticos com Anime.js
-  const magneticButtons = document.querySelectorAll('.btn-3d');
-  magneticButtons.forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      if (window.innerWidth <= 900) return;
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      anime({
-        targets: btn,
-        translateX: x * 0.15,
-        translateY: y * 0.15,
-        scale: 1.05,
-        duration: 150,
-        easing: 'easeOutQuad'
-      });
-      
-      const svg = btn.querySelector('svg');
-      if (svg) {
-        anime({
-          targets: svg,
-          translateX: x * 0.1,
-          translateY: y * 0.1,
-          duration: 150,
-          easing: 'easeOutQuad'
-        });
-      }
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-      anime({
-        targets: btn,
-        translateX: 0,
-        translateY: 0,
-        scale: 1,
-        duration: 600,
-        easing: 'easeOutElastic(1, .5)'
-      });
-      
-      const svg = btn.querySelector('svg');
-      if (svg) {
-        anime({
-          targets: svg,
-          translateX: 0,
-          translateY: 0,
-          duration: 600,
-          easing: 'easeOutElastic(1, .5)'
-        });
-      }
-    });
-  });
+  // Efeitos magnéticos removidos para restaurar o efeito nativo de "apertar" via CSS.
 
   // Grid Dinâmica de Fundo (Hero)
   const gridContainer = document.getElementById('stagger-grid');
@@ -248,13 +197,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initHeroAnimations() {
     const heroTitle = document.getElementById('hero-title');
-    const text = heroTitle.innerText;
+    const htmlContent = heroTitle.innerHTML;
     heroTitle.innerHTML = '';
-    text.split('').forEach(char => {
-      let span = document.createElement('span');
-      span.className = 'char';
-      span.innerText = char === ' ' ? '\u00A0' : char; 
-      heroTitle.appendChild(span);
+    
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlContent;
+    
+    Array.from(tempDiv.childNodes).forEach(node => {
+      if (node.nodeName === 'BR') {
+        const br = document.createElement('br');
+        // Preservar classes (ex: mobile-br) para controlo CSS
+        if (node.className) br.className = node.className;
+        heroTitle.appendChild(br);
+      } else if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent.split('').forEach(char => {
+          if (char === ' ') {
+            heroTitle.appendChild(document.createTextNode(' '));
+          } else {
+            let span = document.createElement('span');
+            span.className = 'char';
+            span.innerText = char; 
+            heroTitle.appendChild(span);
+          }
+        });
+      }
     });
 
     let heroTimeline = anime.timeline({ easing: 'easeOutElastic(1, .5)' });
@@ -314,13 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  anime({
-    targets: '.anime-pulse-btn',
-    scale: [1, 1.04, 1],
-    duration: 2500,
-    easing: 'easeInOutSine',
-    loop: true
-  });
+  // Animação de pulso removida para evitar conflito com o efeito de apertar do CSS.
 
   // ========================================================
   // 2. GSAP SCROLLTRIGGER
@@ -462,24 +422,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  let lastScroll = 0;
-  const navWrapper = document.querySelector('.nav-wrapper');
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll < 50) {
-      gsap.to(navWrapper, { y: 0, duration: 0.4, ease: "power2.out" });
-      lastScroll = currentScroll;
-      return;
-    }
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if(menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isActive = navLinks.classList.contains('active');
+      if (!isActive) {
+        navLinks.classList.add('active');
+        anime({
+          targets: navLinks.querySelectorAll('a'),
+          translateY: [-15, 0],
+          opacity: [0, 1],
+          duration: 400,
+          delay: anime.stagger(50),
+          easing: 'easeOutBack'
+        });
+      } else {
+        navLinks.classList.remove('active');
+      }
+    });
 
-    const isMobile = window.innerWidth <= 900;
-    if (currentScroll > lastScroll) {
-      // Rolando para baixo - Esconder Nav
-      gsap.to(navWrapper, { y: isMobile ? 150 : -150, duration: 0.5, ease: "power2.inOut" });
-    } else {
-      // Rolando para cima - Mostrar Nav
-      gsap.to(navWrapper, { y: 0, duration: 0.4, ease: "power2.out" });
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
+    // Fechar o menu automaticamente ao clicar num link (para navegação numa landing page)
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if(navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+  }
+  
+  // A barra de navegação fica sempre fixa no topo, conforme solicitado.
 });
