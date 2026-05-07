@@ -1,0 +1,19 @@
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title">Galeria de Mundos</h2>
+    <p class="section-subtitle">Conheça os ambientes construídos para esta aventura rítmica.</p>
+  </div>
+
+  <div class="gallery-pin-wrapper">
+    <div class="horizontal-scroll-container">
+      <% gallery.forEach((world) => { %>
+      <div class="gallery-item <%= world.bgClass %>">
+        <div class="gallery-content">
+          <h3><%= world.title %></h3>
+          <p><%= world.description %></p>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

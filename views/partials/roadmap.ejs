@@ -1,0 +1,16 @@
+<section id="roadmap">
+  <div class="container">
+    <h2 class="section-title">Progresso do Projeto</h2>
+    <p class="section-subtitle">A trajetória de desenvolvimento académico no Construct 3.</p>
+
+    <div class="roadmap-container">
+      <% roadmap.forEach((milestone) => { %>
+      <div class="milestone <%= milestone.active ? 'active' : '' %>">
+        <span class="milestone-phase"><%= milestone.phase %></span>
+        <h3><%= milestone.title %></h3>
+        <p><%- milestone.description %></p>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">Perguntas Frequentes</h2>
+    
+    <div class="faq-container" style="max-width: 800px; margin: 3rem auto 0;">
+      <% faq.forEach((item) => { %>
+      <div class="faq-item" style="border-bottom: 1px solid var(--border); padding: 1.5rem 0;">
+        <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600;">
+          <%= item.question %>
+          <span>+</span>
+        </div>
+        <div class="faq-answer" style="display: none; padding-top: 1rem; color: var(--text-muted);">
+          <%- item.answer %>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<section id="devs">
+  <div class="container">
+    <h2 class="section-title">A Equipe</h2>
+    
+    <div class="dev-grid">
+      <% devs.forEach((dev) => { %>
+      <div class="dev-card">
+        <div class="dev-avatar" style="background-image: url('<%= dev.image %>'); width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary); margin-bottom: 1.5rem;"></div>
+        <h4><%= dev.name %></h4>
+        <span style="color: var(--primary); font-weight: 600; display: block; margin-bottom: 1rem;"><%= dev.role %></span>
+        <p style="font-size: 0.9375rem; color: var(--text-muted);"><%- dev.description %></p>
+        <a href="<%= dev.github %>" target="_blank" class="btn btn-secondary" style="margin-top: 1.5rem; width: 100%;">GitHub</a>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

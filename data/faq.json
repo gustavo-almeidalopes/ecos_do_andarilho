@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Qual a Engine utilizada?",
+    "answer": "Todo o jogo foi desenvolvido utilizando o <strong>Construct 3</strong>. Escolhemos o C3 pela facilidade em iterar rapidamente através do sistema de Eventos visuais e por oferecer suporte excelente para HTML5.",
+    "defaultActive": true
+  },
+  {
+    "question": "Quais foram os maiores desafios?",
+    "answer": "Sincronizar a lógica dos pulos e o surgimento dos inimigos com as batidas da música exigiu o uso avançado do plugin de Áudio do Construct 3, mapeando o tempo exato (em segundos) de cada compasso.",
+    "defaultActive": false
+  },
+  {
+    "question": "Lançamento Comercial?",
+    "answer": "Não. \"Ecos do Andarilho\" é estritamente um projeto académico desenvolvido para a faculdade. Servirá exclusivamente como prova de conceito.",
+    "defaultActive": false
+  },
+  {
+    "question": "Otimização Mobile?",
+    "answer": "O Construct 3 permite controlos por toque (<em>Touch Plugin</em>). Inserimos botões semi-transparentes na interface do jogo (HUD) que invocam funções análogas às setas do teclado apenas quando é detetado um ecrã tátil.",
+    "defaultActive": false
+  }
+]

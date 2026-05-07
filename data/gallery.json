@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Mundo 1: Vale dos Ecos",
+    "description": "O ponto de partida da aventura. Campos abertos e plataformas simples ensinam o ritmo dos \"Ecos\" — os primeiros inimigos surgem exatamente na batida.",
+    "bgClass": "bg-forest",
+    "parallaxSpeed": "0.1"
+  },
+  {
+    "title": "Mundo 2: Templo Perdido",
+    "description": "Ruínas de uma civilização antiga repletas de armadilhas verticais. O behavior \"Jump-thru\" é essencial para navegar entre blocos de pedra que surgem no compasso.",
+    "bgClass": "bg-ruins",
+    "parallaxSpeed": "0.15"
+  },
+  {
+    "title": "Mundo 3: Jardim das Nuvens",
+    "description": "Plataformas que dançam ao ritmo do \"Sine behavior\". Um único erro de timing e o Andarilho cai — só a música pode guiá-lo com segurança.",
+    "bgClass": "bg-clouds",
+    "parallaxSpeed": "0.1"
+  },
+  {
+    "title": "Mundo 4: Forja do Caos",
+    "description": "Plataformas sobre lava com blocos que explodem no tempo da música. Velocidade máxima dos inimigos e gravidade aumentada testam os reflexos do jogador.",
+    "bgClass": "bg-lava",
+    "parallaxSpeed": "0.18"
+  },
+  {
+    "title": "Mundo 5: Castelo do Silêncio",
+    "description": "A morada do chefe final. A música para abruptamente e os \"Ecos\" ficam erráticos — o jogador precisa antecipar o silêncio para sobreviver à batalha definitiva.",
+    "bgClass": "bg-boss",
+    "parallaxSpeed": "0.2"
+  }
+]

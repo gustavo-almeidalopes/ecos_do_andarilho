@@ -1,0 +1,22 @@
+<section id="characters">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Os Heróis</h2>
+      <p class="section-subtitle">Personagens únicos com habilidades moldadas pelo ritmo.</p>
+    </div>
+
+    <div class="chars-grid">
+      <% characters.forEach((char) => { %>
+      <div class="char-card">
+        <div class="char-avatar" style="background-image: url('<%= char.image %>');"></div>
+        <h3><%= char.name %></h3>
+        <span class="char-class"><%= char.className %></span>
+        <p class="char-quote">"<%= char.quote %>"</p>
+        <div class="char-lore">
+          <p><%- char.lore %></p>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

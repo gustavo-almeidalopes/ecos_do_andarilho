@@ -1,0 +1,29 @@
+<footer>
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border);">
+      <div>
+        <h4 style="margin-bottom: 1.5rem;">Ecos do Andarilho</h4>
+        <p style="color: var(--text-muted); font-size: 0.9375rem;">Um projeto académico dedicado à exploração de mecânicas rítmicas e design de níveis.</p>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 1.5rem;">Links</h4>
+        <ul style="display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted); font-size: 0.9375rem;">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#about">Mundo</a></li>
+          <li><a href="#characters">Heróis</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 1.5rem;">Estatísticas</h4>
+        <p style="color: var(--text-muted); font-size: 0.9375rem;">
+          Visitas: <strong><%= visitCount %></strong><br>
+          Avaliações: <strong><%= avaliacoes.length %></strong>
+        </p>
+      </div>
+    </div>
+    
+    <div style="padding-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.875rem;">
+      <p>© 2026 Ecos do Andarilho. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>

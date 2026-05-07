@@ -1,0 +1,27 @@
+<section id="avaliacao">
+  <div class="container">
+    <div class="avaliacao-box">
+      <h2 class="section-title">Avaliação Técnica</h2>
+      <p class="section-subtitle">Espaço reservado para o feedback e avaliação docente.</p>
+      
+      <form id="avaliacao-form">
+        <textarea id="avaliacao-feedback" placeholder="Insira seus comentários sobre a programação, arte e design aqui..."></textarea>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Avaliação</button>
+      </form>
+
+      <% if (typeof avaliacoes !== 'undefined' && avaliacoes.length > 0) { %>
+      <div class="avaliacoes-list" style="margin-top: 3rem;">
+        <h3 style="margin-bottom: 1.5rem;">Feedbacks Recebidos</h3>
+        <% avaliacoes.forEach((av) => { %>
+        <div class="avaliacao-item" style="background: var(--bg-main); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1rem; border: 1px solid var(--border);">
+          <p><%= av.feedback %></p>
+          <small style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
+            <%= new Date(av.createdAt).toLocaleDateString() %>
+          </small>
+        </div>
+        <% }); %>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</section>
