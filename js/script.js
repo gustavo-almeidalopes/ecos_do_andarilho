@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
       segment.split('').forEach(char => {
         const span = document.createElement('span');
         span.className = 'char';
-        span.textContent = char === ' ' ? ' ' : char;
+        span.textContent = char === ' ' ? ' ' : char;
         heroTitle.appendChild(span);
       });
       if (idx < segments.length - 1) heroTitle.appendChild(document.createElement('br'));
