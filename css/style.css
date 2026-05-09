@@ -173,35 +173,6 @@ nav {
 .mobile-btn-nav { display: none; }
 
 /* --- EASTER EGG (Moedas) --- */
-.coin-wrapper {
-  position: absolute; z-index: 5; cursor: pointer;
-  display: -webkit-flex; display: flex;
-  -webkit-justify-content: center; justify-content: center;
-  -webkit-align-items: center; align-items: center;
-  opacity: 0.6; transition: opacity 0.3s;
-}
-.coin-wrapper:hover { opacity: 1; }
-.coin {
-  width: 32px; height: 32px;
-  background: url('../images/ui/moeda_ester_egg.png') no-repeat center;
-  background-size: contain;
-  image-rendering: pixelated;
-  image-rendering: -webkit-optimize-contrast;
-  position: relative;
-  transition: filter 0.3s, transform 0.2s;
-  -webkit-animation: coinSpin 2s linear infinite;
-  animation: coinSpin 2s linear infinite;
-}
-@-webkit-keyframes coinSpin {
-  0% { -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
-  100% { -webkit-transform: rotateY(360deg); transform: rotateY(360deg); }
-}
-@keyframes coinSpin {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-}
-.coin-wrapper:hover .coin { filter: brightness(1.2); transform: scale(1.1); }
-.score-popup { position: fixed; color: var(--gold-light); font-family: 'Press Start 2P', monospace; font-size: 24px; text-shadow: 3px 3px 0 var(--brown-dark), -3px -3px 0 var(--brown-dark), 3px -3px 0 var(--brown-dark), -3px 3px 0 var(--brown-dark); pointer-events: none; z-index: 10000; opacity: 0; }
 
 /* --- HERO --- */
 #hero {
@@ -235,7 +206,7 @@ nav {
 #hero h1 {
   font-size: clamp(32px, 6vw, 72px);
   color: #FFF;
-  white-space: normal;
+  white-space: nowrap;
   word-break: keep-all;
   text-shadow:
     2px 2px 0 var(--sky-dark), 4px 4px 0 var(--sky-dark),
@@ -447,7 +418,7 @@ nav {
 .faq-item.active .faq-icon { -webkit-transform: rotate(135deg) translateY(-4px); transform: rotate(135deg) translateY(-4px); background: var(--grass-dark); box-shadow: 0 0 0 var(--brown-dark); }
 
 .project-media-box { background: var(--bg-panel); border: 8px solid var(--brown-dark); padding: 28px; border-radius: 36px; box-shadow: inset 0 0 0 8px var(--stone), 12px 12px 0 rgba(0,0,0,0.2); }
-.project-cover { height: clamp(250px, 32vw, 360px); border: 6px solid var(--brown-dark); border-radius: 24px; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; margin-bottom: 28px; background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #0F172A; box-shadow: inset 0 0 0 6px rgba(255,255,255,0.2); overflow: hidden; transition: transform 0.4s; position: relative; }
+.project-cover { height: clamp(320px, 48vw, 520px); border: 6px solid var(--brown-dark); border-radius: 24px; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; margin-bottom: 28px; background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #0F172A; box-shadow: inset 0 0 0 6px rgba(255,255,255,0.2); overflow: hidden; transition: transform 0.4s; position: relative; }
 .project-cover:hover { transform: scale(1.03); border-color: var(--gold); }
 
 /* --- DEVS --- */
@@ -849,8 +820,8 @@ footer { background: var(--brown-dark); padding: 120px 0 40px; color: #FFF; posi
   --accent-shadow: #7a1f42;
 
   /* ── Texto: creme quente ── */
-  --text: #ede5d0;
-  --text-muted: #9e8e78;
+  --text: #f5f0e8;
+  --text-muted: #cfc0a8;
 
   /* ── Dourado âmbar quente ── */
   --gold: #c88a20;
@@ -990,6 +961,8 @@ footer { background: var(--brown-dark); padding: 120px 0 40px; color: #FFF; posi
   color: var(--text-muted);
   border-left-color: var(--accent);
 }
+[data-theme="dark"] .char-class { color: var(--gold-light); background: rgba(44, 26, 12, 0.85); }
+[data-theme="dark"] .char-card h3 { color: var(--text); }
 [data-theme="dark"] .char-lore { color: var(--text); border-top-color: var(--stone); }
 [data-theme="dark"] .char-card:hover {
   box-shadow: inset 0 0 0 6px var(--stone-dark), 0 12px 0 rgba(0,0,0,0.55), 0 0 32px rgba(201, 79, 122, 0.15);
@@ -1053,6 +1026,8 @@ footer { background: var(--brown-dark); padding: 120px 0 40px; color: #FFF; posi
   box-shadow: inset 0 0 0 8px var(--stone-dark), 16px 16px 0 rgba(0,0,0,0.5);
 }
 [data-theme="dark"] .avaliacao-box h2 { color: var(--text); }
+[data-theme="dark"] .avaliacao-box p { color: var(--text-muted); }
+[data-theme="dark"] .milestone p { color: var(--text-muted); }
 
 /* ── Dev cards dark ── */
 [data-theme="dark"] .dev-card {
@@ -1074,12 +1049,6 @@ footer { background: var(--brown-dark); padding: 120px 0 40px; color: #FFF; posi
 [data-theme="dark"] #scroll-progress-fill {
   background: linear-gradient(to right, var(--grass-light), var(--gold-light));
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.1), 0 2px 0 var(--grass-dark);
-}
-
-/* ── Score popup dark ── */
-[data-theme="dark"] .score-popup {
-  color: var(--gold-light);
-  text-shadow: 3px 3px 0 var(--brown-dark), -3px -3px 0 var(--brown-dark), 3px -3px 0 var(--brown-dark), -3px 3px 0 var(--brown-dark);
 }
 
 /* ── REC indicator dark ── */

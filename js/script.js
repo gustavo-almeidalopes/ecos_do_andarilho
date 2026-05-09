@@ -3,52 +3,6 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true, limitCallbacks: true });
 
 // ========================================================
-// ÁUDIO (EASTER EGG MOEDA)
-// ========================================================
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-let audioCtx;
-
-function playMarioCoinSound() {
-  if (!audioCtx) audioCtx = new AudioContext();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  const oscillator = audioCtx.createOscillator();
-  const gainNode = audioCtx.createGain();
-  oscillator.type = 'square';
-  const now = audioCtx.currentTime;
-  oscillator.frequency.setValueAtTime(987.77, now);
-  oscillator.frequency.setValueAtTime(1318.51, now + 0.1);
-  gainNode.gain.setValueAtTime(0, now);
-  gainNode.gain.linearRampToValueAtTime(0.1, now + 0.05);
-  gainNode.gain.setValueAtTime(0.1, now + 0.1);
-  gainNode.gain.exponentialRampToValueAtTime(0.0001, now + 0.5);
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
-  oscillator.start(now);
-  oscillator.stop(now + 0.5);
-}
-
-function collectCoin(e, coinWrapper) {
-  playMarioCoinSound();
-  coinWrapper.style.pointerEvents = 'none';
-  const score = document.createElement('div');
-  score.className = 'score-popup';
-  score.innerText = '100';
-  score.style.left = e.clientX + 'px';
-  score.style.top = e.clientY + 'px';
-  document.body.appendChild(score);
-  anime({
-    targets: coinWrapper.querySelector('.coin'),
-    translateY: -100, scale: 1.5, opacity: 0, rotate: '1turn',
-    duration: 800, easing: 'easeOutExpo', complete: () => coinWrapper.remove()
-  });
-  anime({
-    targets: score,
-    translateY: -80, scale: [0.5, 1.5], opacity: [1, 0],
-    duration: 1000, easing: 'easeOutCubic', complete: () => score.remove()
-  });
-}
-
-// ========================================================
 // FUNDO ATMOSFÉRICO DARK MODE (Canvas Estrelas + Nuvens)
 // ========================================================
 let darkAtmosphere = null;
@@ -549,28 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { passive: true });
 
   // ========================================================
-  // 3. EASTER EGGS — MOEDAS
-  // ========================================================
-  ['#about', '#roadmap', '#avaliacao', '#gameplay'].forEach(sel => {
-    const section = document.querySelector(sel);
-    if (!section) return;
-    const count = window.innerWidth < 900 ? 1 : 2;
-    for (let i = 0; i < count; i++) {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'coin-wrapper vertical-parallax';
-      wrapper.setAttribute('data-speed', -0.15);
-      wrapper.style.left = (2 + Math.random() * 96) + '%';
-      wrapper.style.top = (5 + Math.random() * 90) + '%';
-      const coin = document.createElement('div');
-      coin.className = 'coin';
-      wrapper.appendChild(coin);
-      section.appendChild(wrapper);
-      wrapper.addEventListener('click', (e) => collectCoin(e, wrapper));
-    }
-  });
-
-  // ========================================================
-  // 4. FAQ INTERATIVO
+  // 3. FAQ INTERATIVO
   // ========================================================
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
