@@ -2,6 +2,7 @@
   "name": "ecos-do-andarilho",
   "version": "1.0.0",
   "description": "Site dinâmico do jogo Ecos do Andarilho — Projeto Académico (Node.js + TypeScript)",
+  "type": "module",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
