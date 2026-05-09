@@ -254,6 +254,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ========================================================
+  // FORMULÁRIO DE AVALIAÇÃO — envio via mailto: para AMBOS os destinatários
+  // (to + cc garante entrega em todos os clientes de e-mail)
+  // ========================================================
+  const avaliacaoForm = document.getElementById('avaliacao-form');
+  if (avaliacaoForm) {
+    const EMAIL_TO = 'gustavo13.roberto@gmail.com';
+    const EMAIL_CC = 'erick.oliveira@email.com';
+    const ASSUNTO = 'Avaliação do Projeto — Ecos do Andarilho';
+
+    avaliacaoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const textarea = document.getElementById('avaliacao-mensagem');
+      const mensagem = (textarea && textarea.value.trim()) || '';
+      if (!mensagem) {
+        textarea && textarea.focus();
+        return;
+      }
+      const subject = encodeURIComponent(ASSUNTO);
+      const body = encodeURIComponent(mensagem);
+      const cc = encodeURIComponent(EMAIL_CC);
+      window.location.href = `mailto:${EMAIL_TO}?cc=${cc}&subject=${subject}&body=${body}`;
+    });
+  }
+
+  // ========================================================
   // TILT NOS CARTÕES
   // ========================================================
   if (window.innerWidth > 900) {

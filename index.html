@@ -347,12 +347,38 @@
       <div class="avaliacao-box gs-elastic-box floating-slow">
         <h2 class="pixel-font">Avaliação do Projeto</h2>
         <p style="margin-top: 15px; font-weight: 500; font-size: 18px;">Professor, deixe aqui o seu feedback técnico e a
-          nota final para o protótipo jogável.</p>
-        <form class="form-group"
-          onsubmit="event.preventDefault(); alert('Feedback enviado com sucesso! Muito obrigado pela avaliação.');">
+          nota final para o protótipo jogável. Ao enviar, a mensagem será encaminhada à equipa de desenvolvimento.</p>
+
+        <p class="avaliacao-emails" style="margin-top: 18px; font-size: 12px; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
+          <span style="display: inline-block; margin-right: 6px;">📧</span>
+          Destinatários:
+          <a href="mailto:gustavo.roberto@cs.unicid.edu.br" style="color: var(--accent); text-decoration: none; font-weight: 900;">gustavo.roberto@cs.unicid.edu.br</a>
+          <span style="opacity: 0.6;"> &nbsp;•&nbsp; </span>
+          <a href="mailto:erick.rocha@cs.unicid.edu.br" style="color: var(--accent); text-decoration: none; font-weight: 900;">erick.rocha@cs.unicid.edu.br</a>
+        </p>
+
+        <form class="form-group" id="avaliacao-form">
           <textarea
+            id="avaliacao-mensagem"
             placeholder="> Insira os seus comentários detalhados sobre a programação, game design, interatividade e arte aqui..._"
-            required></textarea>
+            required>Olá, equipa de "Ecos do Andarilho"!
+
+Acabei de avaliar o protótipo do projeto académico e gostaria de deixar o seguinte feedback:
+
+▸ Programação (Construct 3):
+
+▸ Game Design e Mecânicas:
+
+▸ Arte e Identidade Visual:
+
+▸ Interatividade e Jogabilidade:
+
+▸ Pontos a melhorar:
+
+Nota final sugerida: __ / 10
+
+Atenciosamente,
+[Nome do Professor]</textarea>
           <button type="submit" class="btn-3d anime-pulse-btn"
             style="font-size: 14px; padding: 20px 40px; margin-top: 10px;">ENVIAR AVALIAÇÃO</button>
         </form>
