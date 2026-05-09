@@ -3,9 +3,16 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <!-- viewport: cobre Safari iOS, Chrome Android, Firefox Mobile, Samsung Browser, Opera Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <!-- IE/Edge legacy -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- PWA / Safari iOS -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Cor da barra de endereço (Chrome Android, Samsung Browser, Opera) -->
+  <meta name="theme-color" content="#3B82F6">
   <title>Ecos do Andarilho — Projeto Académico</title>
   <link rel="icon" type="image/x-icon" href="images/ui/favicon.ico">
 
@@ -71,7 +78,7 @@
 
     <div class="hero-content parallax-hero">
       <div class="hero-badge reveal-hero floating">PROJETO ACADÉMICO - CONSTRUCT 3</div>
-      <h1 id="hero-title">ECOS DO ANDARILHO</h1>
+      <h1 id="hero-title">ECOS DO<br>ANDARILHO</h1>
       <p class="reveal-hero">Um jogo de plataformas e ritmo desenvolvido integralmente na engine <strong>Construct
           3</strong>. Sincronize os seus saltos com a música e derrote os inimigos no tempo certo!</p>
 
@@ -375,7 +382,7 @@
 
         <div class="project-media-box gs-stagger-up" style="margin-top: 60px;">
           <div class="project-cover"
-            style="background-image: url('images/ui/capa.png'); background-size: cover; background-position: center; image-rendering: pixelated; margin-top: 20px;">
+            style="background-image: url('images/ui/capa.png'); background-size: contain; background-position: center; image-rendering: pixelated; margin-top: 20px;">
           </div>
 
           <div class="project-links" style="display: flex; flex-direction: column; gap: 16px;">
