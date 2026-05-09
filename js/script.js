@@ -856,33 +856,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ========================================================
-  // 23. NAVBAR — ocultar com scroll rápido para baixo
+  // 23. NAVBAR — sempre visível (sem ocultar no scroll)
   // ========================================================
-  let lastScroll = 0;
-  let navHideTimer = null;
   const navWrapper = document.querySelector('.nav-wrapper');
+  if (navWrapper) {
+    navWrapper.style.transform = 'translateY(0)';
+  }
 
-  window.addEventListener('scroll', () => {
-    const curr = Math.max(0, window.pageYOffset || window.scrollY);
-    const delta = curr - lastScroll;
-
-    if (curr < 50) {
-      gsap.to(navWrapper, { y: 0, duration: 0.4, ease: 'power2.out' });
-      lastScroll = curr;
-      return;
-    }
-    if (Math.abs(delta) < 8) return;
-
-    const isMobile = window.innerWidth <= 900;
-    if (delta > 0) {
-      gsap.to(navWrapper, { y: isMobile ? 150 : -150, duration: 0.5, ease: 'power2.inOut' });
-      clearTimeout(navHideTimer);
-      navHideTimer = setTimeout(() => gsap.to(navWrapper, { y: 0, duration: 0.5, ease: 'power2.out' }), 3000);
-    } else {
-      clearTimeout(navHideTimer);
-      gsap.to(navWrapper, { y: 0, duration: 0.4, ease: 'power2.out' });
-    }
-    lastScroll = curr;
-  }, { passive: true });
+  // ========================================================
+  // 24. TEXTAREA AVALIAÇÃO — auto-resize (sem scroll interno)
+  // ========================================================
+  const avaliacaoTextarea = document.getElementById('avaliacao-mensagem');
+  if (avaliacaoTextarea) {
+    const autoResize = () => {
+      avaliacaoTextarea.style.height = 'auto';
+      avaliacaoTextarea.style.height = avaliacaoTextarea.scrollHeight + 'px';
+    };
+    avaliacaoTextarea.addEventListener('input', autoResize);
+    // Aplicar na carga para o texto pré-preenchido
+    autoResize();
+  }
 
 });

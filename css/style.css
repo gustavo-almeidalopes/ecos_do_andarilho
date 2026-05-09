@@ -401,11 +401,13 @@ nav {
 #avaliacao .avaliacao-box { background: var(--bg-panel); border: 8px solid var(--brown-dark); padding: clamp(40px, 6vw, 80px); max-width: 850px; margin: 0 auto; box-shadow: inset 0 0 0 8px var(--stone), 16px 16px 0 rgba(69,26,3,0.2); border-radius: 40px; text-align: center; }
 .form-group { display: -webkit-flex; display: flex; gap: 20px; -webkit-flex-direction: column; flex-direction: column; -webkit-align-items: center; align-items: center; width: 100%; margin-top: 30px; }
 .form-group textarea {
-  width: 100%; max-width: 650px; min-height: 320px; padding: 22px;
+  width: 100%; max-width: 650px; padding: 22px;
   background: #1C1917; border: 6px solid var(--stone); border-radius: 20px;
   color: var(--grass-light); font-family: 'Press Start 2P', monospace;
   font-size: max(12px, 14px); line-height: 1.9;
-  outline: none; transition: all 0.3s; box-shadow: inset 0 10px 20px rgba(0,0,0,0.5); resize: vertical;
+  outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: inset 0 10px 20px rgba(0,0,0,0.5);
+  resize: none; overflow: hidden;
   white-space: pre-wrap; word-wrap: break-word;
 }
 .form-group textarea::placeholder { color: rgba(110, 231, 183, 0.4); }
@@ -512,10 +514,9 @@ footer { background: var(--brown-dark); padding: clamp(80px, 10vw, 120px) 0 48px
     min-height: unset;
     background: var(--grass);
     border-color: var(--brown-dark);
-    transform: translateY(0) !important;
     will-change: auto;
   }
-  .nav-wrapper { transform: none !important; }
+  .nav-wrapper { transform: none; }
 
   .nav-top-row { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; width: 100%; margin-bottom: 4px; }
   .nav-top-row .logo { font-size: 13px; color: #FFF; text-shadow: 2px 2px 0 var(--brown-dark); }
@@ -621,7 +622,7 @@ footer { background: var(--brown-dark); padding: clamp(80px, 10vw, 120px) 0 48px
 
   /* ── Formulário ── */
   .form-group button { max-width: 100%; font-size: 11px !important; padding: 16px !important; }
-  .form-group textarea { font-size: max(11px, 14px); padding: 16px; min-height: 280px; line-height: 1.8; }
+  .form-group textarea { font-size: max(11px, 14px); padding: 16px; line-height: 1.8; overflow: hidden; }
   .avaliacao-box { padding: 28px 18px; border-radius: 24px; }
   .avaliacao-box h2 { font-size: 15px; }
   .avaliacao-box p { font-size: 11px !important; line-height: 1.7; }
