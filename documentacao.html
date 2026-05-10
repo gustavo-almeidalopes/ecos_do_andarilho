@@ -40,6 +40,8 @@
     /* ── Reset & Base ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; overscroll-behavior: none; }
+    
+    /* Nota: O display: flex aqui é o que causa problemas na impressão se não for removido no @media print */
     body {
       background: var(--bg-panel); color: var(--text);
       font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.8;
@@ -148,48 +150,56 @@
     }
 
     @media print {
-      /* Margens zeradas para ocupação total da página. Cada container terá o seu padding. */
+      /* Margens zeradas para ocupação total da página na capa. Os paddings farão o espaçamento. */
       @page { size: A4; margin: 0; }
       
-      /* FORÇA impressão de cores de fundo (WebKit + Standard) */
+      /* FORÇA impressão de cores de fundo sem exceções */
       * {
         -webkit-print-color-adjust: exact !important; 
         print-color-adjust: exact !important; 
         color-adjust: exact !important;
       }
       
-      /* Mantém o fundo escuro do site impresso */
+      /* CORREÇÃO DO BUG CRÍTICO DAS PÁGINAS BRANCAS:
+         1. Remover o `display: flex` do body que bloqueia a paginação
+         2. Garantir que `height` é auto, não 100%
+         3. Aplicar display: block globalmente nas tags estruturais */
       html, body { 
         background: #0F172A !important; 
         color: #F8FAFC !important; 
         margin: 0 !important; 
         padding: 0 !important; 
-        width: 100%; 
+        width: 100% !important; 
+        height: auto !important;
+        display: block !important; /* <--- FIX CRÍTICO AQUI */
+        overflow: visible !important;
       }
       
-      /* Esconder navegação Web */
+      /* Esconder navegação Web e botões indesejados */
       .no-print, .web-header, .fixed-nav, body::before, body::after, #scroll-progress { display: none !important; }
       
-      /* Expande container principal para impressão A4 */
+      /* O container principal não pode ter overflow escondido nem limites de altura */
       .container { 
         max-width: 100% !important; 
-        width: 210mm !important; 
+        width: 100% !important; 
         padding: 0 !important; 
-        margin: 0 auto !important; 
+        margin: 0 !important; 
+        display: block !important;
+        overflow: visible !important;
       }
 
-      /* ── CAPA A4 TIPOGRÁFICA (CSS PURO, SEM IMAGEM) ── */
+      /* ── CAPA A4 TIPOGRÁFICA (Preenche exatamente a primeira folha) ── */
       .print-only-cover {
         display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 210mm;
-        height: 297mm; /* Preenche exatamente a página A4 inteira */
+        width: 100%;
+        height: 297mm; /* Altura de uma página A4 exata */
         background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #064E3B 100%) !important;
-        page-break-after: always;
-        break-after: page;
+        page-break-after: always !important; /* Força quebra de página logo a seguir */
+        break-after: page !important;
         box-sizing: border-box;
         padding: 20mm;
         border: 10px solid #FDE047 !important;
@@ -228,34 +238,44 @@
         font-family: 'Press Start 2P', monospace; 
       }
 
-      /* ── FORMATAÇÃO DAS PÁGINAS DE CONTEÚDO A4 ── */
+      /* ── FORMATAÇÃO DAS PÁGINAS DE CONTEÚDO (Permitir quebra natural) ── */
       .doc-section, .toc-box { 
-        width: 210mm !important;
-        min-height: auto !important;
-        padding: 20mm 15mm !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 15mm 20mm !important; /* Margem da página resolvida via padding dos blocos */
         margin: 0 !important;
         box-sizing: border-box !important;
-        border: none !important; /* Remove bordas arredondadas do web para papel plano */
+        border: none !important;
         border-bottom: 4px solid #1F2937 !important;
         border-radius: 0 !important;
-        page-break-inside: avoid;
         background: #0F172A !important;
+        display: block !important;
+        /* REMOVIDO o page-break-inside: avoid dos blocos grandes para permitir a quebra das páginas! */
+        page-break-inside: auto !important;
+        break-inside: auto !important;
       }
       
-      .page-break-before { page-break-before: always; break-before: page; }
+      .page-break-before { 
+        page-break-before: always !important; 
+        break-before: page !important; 
+      }
       
       /* Tipografia Print */
-      h2 { color: #60A5FA !important; border-bottom: 2pt solid #1F2937 !important; padding-bottom: 10pt; }
-      h3 { color: #FDE047 !important; }
+      h2 { color: #60A5FA !important; border-bottom: 2pt solid #1F2937 !important; padding-bottom: 10pt; page-break-after: avoid !important; }
+      h3 { color: #FDE047 !important; page-break-after: avoid !important; }
       p, li { color: #F8FAFC !important; font-size: 11pt !important; line-height: 1.7; }
 
-      /* Tabelas e Caixas na Impressão Escura */
-      .terminal-box, .dialog-box, .doc-table-wrapper { 
+      /* Tabelas e Caixas de Código na Impressão */
+      /* Apenas protegemos blocos pequenos de quebrarem a meio */
+      .terminal-box, .dialog-box, .doc-table-wrapper, .arch-card { 
         border: 2pt solid #4B5563 !important; 
         background: #020617 !important; 
         box-shadow: none !important; 
-        page-break-inside: avoid; 
+        page-break-inside: avoid !important; /* Estes podem ter avoid para não separar o código em 2 páginas */
+        break-inside: avoid !important;
         width: 100% !important;
+        display: block !important;
+        margin-bottom: 15px !important;
       }
       .terminal-header { background: #1F2937 !important; border-bottom: 2pt solid #000 !important; }
       .terminal-title { color: #FFF !important; }
@@ -279,7 +299,6 @@
 
   <!-- =========================================================
        CAPA EXCLUSIVA PARA PDF (A4) - Fica oculta na Web
-       Feita 100% em CSS Colorido. Preenche a página toda.
        ========================================================= -->
   <div class="print-only-cover">
     <h1>DOCUMENTAÇÃO<br>TÉCNICA</h1>
