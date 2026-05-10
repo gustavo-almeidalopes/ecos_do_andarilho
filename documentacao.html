@@ -9,7 +9,7 @@
   <title>Documentação Técnica — Ecos do Andarilho</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="../images/ui/favicon.ico">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -179,15 +179,15 @@
 
     @media print {
       /* Margens padrão de papel A4 */
-      @page { size: A4; margin: 1.5cm; }
+      @page { size: A4; margin: 1cm; }
       
       /* Reset rigoroso de cores para poupar tinta e ser legível */
       * {
         -webkit-print-color-adjust: exact !important; 
-        print-color-adjust: exact !important; /* FORÇA a impressão de fundos (como a capa e códigos) */
+        print-color-adjust: exact !important; 
       }
       
-      body { background: #FFF !important; color: #000 !important; font-size: 11pt !important; display: block; }
+      body { background: #FFF !important; color: #000 !important; font-size: 11pt !important; display: block; margin: 0 !important; }
       
       /* Esconder elementos de UI que não vão para o PDF */
       .no-print, .web-header, .fixed-nav, .dark-mode-toggle, body::before { display: none !important; }
@@ -196,20 +196,55 @@
 
       /* ── A CAPA DE IMPRESSÃO EXCLUSIVA ── */
       .print-only-cover {
-        display: flex !important;
+        display: block !important;
+        position: relative;
+        width: 100%;
+        height: 297mm; /* Altura exata de uma A4 */
+        page-break-after: always;
+        break-after: page;
+        margin: -1cm -1cm 1cm -1cm; /* Compensa a margem da @page */
+        overflow: hidden;
+      }
+      
+      /* Imagem forçada via tag img em vez de background para contornar bloqueios de navegadores */
+      .print-only-cover img.bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+      
+      /* Overlay escuro para garantir legibilidade do texto na capa */
+      .print-only-cover .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15,23,42,0.8);
+        z-index: 2;
+      }
+
+      /* Conteúdo da capa posicionado por cima da imagem */
+      .print-only-cover .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 100%;
-        height: 297mm; /* Altura exata de uma A4 */
-        background: linear-gradient(to bottom, rgba(15,23,42,0.7), rgba(15,23,42,0.9)), url('capa.png') center/cover no-repeat !important;
-        page-break-after: always;
-        break-after: page;
-        margin: -1.5cm -1.5cm 1.5cm -1.5cm; /* Compensa a margem da @page para dar bleed na imagem */
         padding: 2cm;
-        box-sizing: content-box;
+        box-sizing: border-box;
       }
+
       .print-only-cover h1 {
         font-family: 'Press Start 2P', monospace;
         font-size: 32pt !important;
@@ -218,14 +253,28 @@
         margin-bottom: 20px;
         line-height: 1.2;
       }
+      
       .print-only-cover h2 {
         font-family: 'Press Start 2P', monospace;
         font-size: 14pt !important;
         color: #FDE047 !important;
         text-shadow: 3px 3px 0px #000 !important;
       }
-      .print-only-cover .meta-box { margin-top: 50px; background: rgba(0,0,0,0.8) !important; border: 2px solid #FFF !important; padding: 20px; border-radius: 12px; }
-      .print-only-cover p { color: #FFF !important; font-size: 12pt !important; margin: 5px 0; font-family: 'Press Start 2P', monospace; }
+      
+      .print-only-cover .meta-box { 
+        margin-top: 50px; 
+        background: rgba(0,0,0,0.8) !important; 
+        border: 2px solid #FFF !important; 
+        padding: 20px; 
+        border-radius: 12px; 
+      }
+      
+      .print-only-cover p { 
+        color: #FFF !important; 
+        font-size: 12pt !important; 
+        margin: 5px 0; 
+        font-family: 'Press Start 2P', monospace; 
+      }
 
       /* Estruturação de Páginas A4 (Evitar quebras no meio do conteúdo) */
       .doc-section { page-break-inside: avoid; margin-bottom: 30pt !important; }
@@ -264,15 +313,20 @@
        CAPA EXCLUSIVA PARA PDF (A4) - Fica oculta no ecrã
        ========================================================= -->
   <div class="print-only-cover">
-    <h1>DOCUMENTAÇÃO<br>TÉCNICA</h1>
-    <h2>ECOS DO ANDARILHO</h2>
-    <div class="meta-box">
-      <p style="font-size: 8pt !important; color: #9CA3AF !important;">ENGINE</p>
-      <p style="margin-bottom: 20px;">Construct 3 (WebGL)</p>
-      <p style="font-size: 8pt !important; color: #9CA3AF !important;">DESENVOLVEDORES</p>
-      <p style="margin-bottom: 20px;">Gustavo Lopes & Erick Oliveira</p>
-      <p style="font-size: 8pt !important; color: #9CA3AF !important;">VERSÃO</p>
-      <p>Game Design Document V1.0</p>
+    <!-- Imagem forçada via tag <img> para contornar o bloqueio de background-images na impressão -->
+    <img src="capa.png" class="bg-image" alt="Capa Ecos do Andarilho">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>DOCUMENTAÇÃO<br>TÉCNICA</h1>
+      <h2>ECOS DO ANDARILHO</h2>
+      <div class="meta-box">
+        <p style="font-size: 8pt !important; color: #9CA3AF !important;">ENGINE</p>
+        <p style="margin-bottom: 20px;">Construct 3 (WebGL)</p>
+        <p style="font-size: 8pt !important; color: #9CA3AF !important;">DESENVOLVEDORES</p>
+        <p style="margin-bottom: 20px;">Gustavo Lopes & Erick Oliveira</p>
+        <p style="font-size: 8pt !important; color: #9CA3AF !important;">VERSÃO</p>
+        <p>Game Design Document V1.0</p>
+      </div>
     </div>
   </div>
 
