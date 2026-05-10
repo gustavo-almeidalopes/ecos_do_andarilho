@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A84FF,50:8957E5,100:EC70BD&height=240&section=header&text=ECOS%20DO%20ANDARILHO&fontSize=64&fontColor=fff&animation=fadeIn&fontAlignY=38&desc=Onde%20a%20m%C3%BAsica%20guia%20cada%20movimento&descSize=18&descAlignY=60" width="100%"/>
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=34&duration=1&pause=999999&color=58A6FF&center=true&vCenter=true&width=900&height=80&lines=ECOS+DO+ANDARILHO" alt="ECOS DO ANDARILHO"/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=11&duration=1&pause=999999&color=8B949E&center=true&vCenter=true&width=900&height=30&lines=Onde+a+m%C3%BAsica+guia+cada+movimento" alt="Onde a música guia cada movimento"/>
 
 <br/>
 
