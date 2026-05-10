@@ -15,16 +15,16 @@
 
 ### 🎮 *Um jogo de plataforma rítmico onde a música guia cada movimento.*
 
+<div align="center">
 <br/>
-
-![Construct 3](https://img.shields.io/badge/ENGINE-CONSTRUCT_3-orange?style=for-the-badge\&logo=construct3)
-![HTML5](https://img.shields.io/badge/PLATFORM-HTML5-blue?style=for-the-badge\&logo=html5)
-![JavaScript](https://img.shields.io/badge/JAVASCRIPT-ES6-yellow?style=for-the-badge\&logo=javascript\&logoColor=black)
-![Mobile](https://img.shields.io/badge/MOBILE-SUPPORTED-success?style=for-the-badge)
-![Status](https://img.shields.io/badge/STATUS-FINALIZADO-brightgreen?style=for-the-badge)
-![License](https://img.shields.io/badge/LICENSE-MIT-lightgrey?style=for-the-badge)
-
+<img src="https://img.shields.io/badge/ENGINE-CONSTRUCT_3-orange?style=for-the-badge&logo=construct3"/>
+<img src="https://img.shields.io/badge/PLATFORM-HTML5-blue?style=for-the-badge&logo=html5"/>
+<img src="https://img.shields.io/badge/JAVASCRIPT-ES6-yellow?style=for-the-badge&logo=javascript&logoColor=black"/>
+<img src="https://img.shields.io/badge/MOBILE-SUPPORTED-success?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/STATUS-FINALIZADO-brightgreen?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/LICENSE-MIT-lightgrey?style=for-the-badge"/>
 <br/>
+</div>
 
 > ### ⚡ “Cada salto deixa um eco.”
 
