@@ -25,7 +25,7 @@
 <br/>
 <br/>
 
-<img src="./images/ui/capa.png" width="860" alt="Banner Ecos do Andarilho"/>
+<img src="./images/ui/capa.png" width="425" alt="Banner Ecos do Andarilho"/>
 
 <br/>
 <br/>
