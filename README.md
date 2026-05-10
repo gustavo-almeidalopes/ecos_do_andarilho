@@ -2,9 +2,9 @@
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=34&duration=1&pause=999999&color=58A6FF&center=true&vCenter=true&width=900&height=80&lines=ECOS+DO+ANDARILHO" alt="ECOS DO ANDARILHO"/>
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=34&duration=3000&pause=2000&color=FFFFFF&center=true&vCenter=true&width=900&height=80&lines=ECOS+DO+ANDARILHO" alt="ECOS DO ANDARILHO"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=11&duration=1&pause=999999&color=8B949E&center=true&vCenter=true&width=900&height=30&lines=Onde+a+m%C3%BAsica+guia+cada+movimento" alt="Onde a música guia cada movimento"/>
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=11&duration=4000&pause=3000&color=F5C518&center=true&vCenter=true&width=900&height=30&lines=Onde+a+m%C3%BAsica+guia+cada+movimento" alt="Onde a música guia cada movimento"/>
 
 <br/>
 
