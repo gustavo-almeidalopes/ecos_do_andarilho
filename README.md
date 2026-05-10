@@ -1,210 +1,259 @@
-# 🎮 Ecos do Andarilho — Landing Page & Jogo
-
-> **Projeto Académico** — Desenvolvido para a disciplina de Desenvolvimento Mobile  
-> Engine utilizada: **Construct 3** | Landing Page: **HTML · CSS · JavaScript**
+# 🌌 Ecos do Andarilho
 
 <div align="center">
 
-![Badge](https://img.shields.io/badge/Engine-Construct%203-orange?style=for-the-badge)
-![Badge](https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge)
-![Badge](https://img.shields.io/badge/Plataforma-Web%20%2F%20HTML5-blue?style=for-the-badge)
-![Badge](https://img.shields.io/badge/Licen%C3%A7a-MIT-lightgrey?style=for-the-badge)
+<img src="./images/ui/capa.png" width="100%" alt="Banner Ecos do Andarilho"/>
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=13&pause=1000&color=58A6FF&center=true&vCenter=true&width=900&lines=UM+JOGO+ONDE+CADA+SALTO+SEGUE+O+RITMO+DA+M%C3%9ASICA;PIXEL+ART+%2B+PLATFORMER+%2B+GAMEPLAY+R%C3%8DTMICA;CONSTRUCT+3+%7C+HTML5+%7C+MOBILE+SUPPORTED" alt="Typing SVG" />
+
+<br/>
+<br/>
+
+![Construct 3](https://img.shields.io/badge/ENGINE-CONSTRUCT_3-orange?style=for-the-badge\&logo=construct3)
+![Platform](https://img.shields.io/badge/PLATFORM-HTML5-blue?style=for-the-badge\&logo=html5)
+![Mobile](https://img.shields.io/badge/MOBILE-SUPPORTED-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-FINALIZADO-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/LICENSE-MIT-lightgrey?style=for-the-badge)
 
 </div>
 
 ---
 
-## 📖 Sobre o Projeto
+# 🎮 Sobre o Jogo
 
-**Ecos do Andarilho** é um jogo de plataformas e ritmo desenvolvido integralmente na engine **Construct 3** como trabalho académico universitário. O jogador sincroniza seus saltos com a música e derrota inimigos no tempo certo, explorando um mundo vibrante e colorido.
+> ### ⚡ “Cada salto deixa um eco.”
 
-Este repositório contém:
-- 🎮 **O jogo exportado em HTML5** — jogável diretamente no navegador
-- 🌐 **A Landing Page oficial** — desenvolvida em HTML, CSS e JavaScript puro, com design Neo-Retro e animações premium
+**Ecos do Andarilho** é um jogo de plataforma rítmico desenvolvido em **Construct 3**, unindo gameplay clássica, pixel art e sincronização musical em uma experiência Neo-Retro moderna.
 
----
+O projeto foi criado como trabalho acadêmico para a disciplina de Desenvolvimento Mobile, com foco em:
 
-## ✨ Funcionalidades do Jogo
+* 🎵 gameplay sincronizada com música;
+* 🕹️ movimentação fluida;
+* 🌌 ambientação imersiva;
+* ⚡ obstáculos dinâmicos;
+* 📱 compatibilidade mobile;
+* 🎨 identidade visual estilizada.
 
-| Funcionalidade | Descrição |
-|---|---|
-| 🎵 Gameplay Rítmico | Sincronização dos saltos e inimigos com a batida da música |
-| 🏃 Física Custom | Sistema de *Gravity* e *Jump Strength* ajustados manualmente |
-| 🗺️ 4 Mapas | Floresta, Ruínas, Nuvens e Covil do Chefe |
-| 👾 3 Heróis | Kaelen, Lyra e Grom — cada um com mecânicas únicas |
-| 📱 Suporte Mobile | Controles por toque via *Touch Plugin* do Construct 3 |
-| 🛡️ Sistema de Shield | Variável booleana que absorve golpes (personagem Grom) |
-| ⚡ Ecos | Momentos onde a batida da música dita as variáveis globais |
+A proposta do jogo é transformar ritmo em mecânica, fazendo com que o jogador acompanhe o fluxo da música para superar desafios, plataformas e inimigos.
 
 ---
 
-## 🗂️ Estrutura do Repositório
+# ⚡ Gameplay
 
-```
+## 🎵 Plataforma Rítmica
+
+A gameplay gira em torno da sincronização entre:
+
+* movimentação;
+* saltos;
+* timing;
+* obstáculos;
+* plataformas móveis;
+* comportamento dos inimigos.
+
+Cada fase possui:
+
+* ritmo próprio;
+* velocidade diferente;
+* atmosfera única;
+* desafios progressivos.
+
+---
+
+# 🌍 Mundos
+
+<div align="center">
+
+| Mundo               | Tema          | Destaque           |
+| ------------------- | ------------- | ------------------ |
+| 🌳 Floresta Viva    | Introdução    | Gameplay básica    |
+| 🏛️ Ruínas Antigas  | Verticalidade | Exploração         |
+| ☁️ Reino das Nuvens | Precisão      | Plataformas móveis |
+| 🔥 Covil Final      | Boss Battle   | Ritmo acelerado    |
+
+</div>
+
+---
+
+# 🦸 Personagens
+
+## ⚔️ Kaelen — O Salteador
+
+> *“O ritmo certo transforma qualquer salto em vitória.”*
+
+* Gameplay equilibrada;
+* movimentação clássica;
+* foco em precisão;
+* física refinada.
+
+---
+
+## 🌪️ Lyra — Tecelã das Nuvens
+
+> *“A gravidade também dança.”*
+
+* Controle gravitacional;
+* mobilidade aérea;
+* movimentação dinâmica;
+* gameplay avançada.
+
+---
+
+## 🛡️ Grom — Guardião de Pedra
+
+> *“Montanhas não recuam.”*
+
+* Sistema de shield;
+* resistência elevada;
+* absorção de dano;
+* gameplay defensiva.
+
+---
+
+# 🎨 Direção Artística
+
+A identidade visual do projeto foi inspirada em:
+
+* 🎮 jogos clássicos de plataforma;
+* 🌌 interfaces Neo-Retro;
+* ✨ pixel art moderna;
+* 📺 experiências indie contemporâneas.
+
+## Elementos Visuais
+
+* Pixel Art;
+* Parallax;
+* Paleta vibrante;
+* Atmosfera imersiva;
+* Cenários estilizados;
+* Feedback visual dinâmico.
+
+---
+
+# 🧠 Tecnologias Utilizadas
+
+| Tecnologia        | Finalidade                |
+| ----------------- | ------------------------- |
+| Construct 3       | Desenvolvimento principal |
+| HTML5 Export      | Build Web                 |
+| Platform Behavior | Física principal          |
+| Touch Plugin      | Controles mobile          |
+| Event Sheets      | Sistema de lógica         |
+| Sine Behavior     | Plataformas dinâmicas     |
+
+---
+
+# 📱 Compatibilidade
+
+| Plataforma              | Suporte |
+| ----------------------- | ------- |
+| 💻 Desktop              | ✅       |
+| 📱 Smartphones          | ✅       |
+| 📲 Tablets              | ✅       |
+| 🌐 Navegadores modernos | ✅       |
+
+---
+
+# ⚙️ Estrutura do Projeto
+
+```bash
 jogo_aula_de_mobile/
 │
-├── index.html              # Landing Page principal
-├── README.md               # Este arquivo
-├── LICENSE                 # Licença MIT
-│
-├── css/
-│   └── style.css           # Estilos da Landing Page (design Neo-Retro)
-│
-├── js/
-│   └── script.js           # Lógica: animações GSAP, Anime.js, parallax, easter eggs
+├── game/
+│   └── jogo.html
 │
 ├── images/
-│   ├── chars/              # Sprites dos personagens (pixel art)
-│   │   ├── personagem1.png # Kaelen — O Salteador
-│   │   ├── personagem2.png # Lyra — Tecelã das Nuvens
-│   │   └── personagem3.png # Grom — O Guardião de Pedra
-│   ├── devs/               # Fotos/avatares dos desenvolvedores
-│   │   ├── developer_site.png
-│   │   └── developer_game.png
-│   └── ui/                 # Assets de interface
-│       ├── capa.png        # Capa do projeto
-│       ├── imagem1_cenario.png
-│       └── favicon.ico
+│   ├── chars/
+│   ├── ui/
+│   └── devs/
 │
-└── game/                   # Export do jogo em HTML5 (Construct 3)
-    └── jogo.html
+├── css/
+│
+├── js/
+│
+└── README.md
 ```
 
 ---
 
-## 🎨 Stack da Landing Page
+# 🚀 Execução Local
 
-| Tecnologia | Uso |
-|---|---|
-| **HTML5** | Estrutura semântica da página |
-| **CSS3 Vanilla** | Sistema de design com variáveis CSS, glassmorphism, layout responsivo |
-| **JavaScript ES6+** | Lógica de animações, interatividade e easter eggs |
-| **GSAP 3.12** + **ScrollTrigger** | Animações de scroll, parallax vertical e pin horizontal |
-| **Anime.js 3.2** | Animações de entrada, partículas e efeitos magnéticos nos botões |
-| **Google Fonts** | Press Start 2P (pixel font) + Inter |
+## Clone o projeto
 
-### Design System
-
-- 🎨 Paleta Neo-Retro: Céu Azul, Grama Verde, Pedra, Madeira e Vermelho
-- 🖌️ Tipografia pixel art com `Press Start 2P`
-- 🪟 Glassmorphism na navegação flutuante
-- ✨ Micro-animações em todos os elementos interativos
-- 📱 Layout 100% responsivo com `clamp()` e media queries
-
----
-
-## 🕹️ Como Executar
-
-### Pré-requisitos
-- Navegador moderno (Chrome, Firefox, Edge, Safari)
-- Nenhuma dependência de instalação — tudo via CDN
-
-### Passos
-
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/gustavo-almeidalopes/jogo_aula_de_mobile.git
-   cd jogo_aula_de_mobile
-   ```
-
-2. **Abra a Landing Page:**
-   - Abra `index.html` diretamente no navegador, **ou**
-   - Use uma extensão como **Live Server** no VS Code para hot reload
-
-3. **Jogar:**
-   - Clique em **"JOGAR NO BROWSER"** na Landing Page
-   - Ou acesse `game/jogo.html` diretamente
-
----
-
-## 🗺️ Mapas do Jogo
-
-| Mapa | Tema | Mecânica Principal |
-|---|---|---|
-| 🌳 **Mapa 1 — A Floresta** | Introdutório | Controles básicos, primeiros inimigos |
-| 🏛️ **Mapa 2 — Ruínas** | Exploração vertical | Behavior *Jump-thru* em plataformas |
-| ☁️ **Mapa 3 — Nuvens** | Precisão | Plataformas móveis com behavior *Sine* |
-| 🔥 **Mapa 4 — Covil** | Boss final | Ritmo acelerado, perigos responsivos à música |
-
----
-
-## 🦸 Os Heróis
-
-### Kaelen — O Salteador
-> *"Saltar em cima dos inimigos no ritmo certo? Deixa comigo!"*
-
-Personagem base focado na mecânica do *Platformer* clássico. A programação exigiu ajuste fino das variáveis de **Gravity** e **Jump Strength**.
-
-### Lyra — Tecelã das Nuvens
-> *"O vento sopra sempre no andamento perfeito da música."*
-
-Personagem alternativo que manipula as leis da física da engine. Sua habilidade especial anula temporariamente a gravidade (`Set Gravity to 0`).
-
-### Grom — O Guardião de Pedra
-> *"As montanhas não recuam e eu também não!"*
-
-O "Tank" do grupo. Possui uma variável booleana de **Shield** que absorve um golpe. Quando danificado, a *Animation* transita para um estado enfraquecido.
-
----
-
-## 📅 Fases do Desenvolvimento
-
-```
-✅ FASE 1 — Conceito e GDD
-   Paleta de cores, sprites iniciais e validação da lógica de ritmo
-
-✅ FASE 2 — Protótipo no Construct 3
-   Behaviors nativos (Platform, Solid, Sine), Folhas de Eventos e testes de colisão
-
-✅ FASE 3 — Entrega & Polimento
-   Adição de som, correção de bugs (QA), exportação HTML5 e criação da Landing Page
-
-🔜 FASE 4 — Apresentação
-   Submissão formal, defesa oral e demonstração ao vivo
+```bash
+git clone https://github.com/gustavo-almeidalopes/jogo_aula_de_mobile.git
 ```
 
 ---
 
-## 👩‍💻 Equipe
+## Acesse a pasta
 
-<table>
-  <tr>
-    <td align="center">
-      <b>Gustavo Lopes</b><br/>
-      <sub>RGM: 34283008</sub><br/>
-      <sub>UX/UI Designer & Front-end Dev</sub>
-    </td>
-    <td align="center">
-      <b>Erick Oliveira</b><br/>
-      <sub>RGM: 40277704</sub><br/>
-      <sub>Desenvolvedor do Jogo (Construct 3)</sub>
-    </td>
-  </tr>
-</table>
-
-**Gustavo Lopes** — Responsável pela Landing Page oficial, focando em responsividade, acessibilidade e performance. Estruturou o front-end com HTML, CSS e JavaScript usando design Neo-Retro. Liderou o versionamento de código e elaborou a documentação técnica do projeto.
-
-**Erick Oliveira** — Engenheiro principal do jogo. Criou e configurou os mapas, desenvolveu os sistemas de física, movimentação e animação de sprites, garantindo performance consistente e livre de quedas de frame rate.
+```bash
+cd jogo_aula_de_mobile
+```
 
 ---
 
-## 🔗 Links
+## Execute
 
-- 🌐 **Landing Page ao vivo:** *(abrir `index.html`)*
-- 🎮 **Jogo ao vivo:** *(abrir `game/jogo.html`)*
-- 📁 **Repositório:** [github.com/gustavo-almeidalopes/jogo_aula_de_mobile](https://github.com/gustavo-almeidalopes/jogo_aula_de_mobile)
+Abra o arquivo:
+
+```bash
+game/jogo.html
+```
 
 ---
 
-## 📄 Licença
+# 👨‍💻 Desenvolvimento
 
-Este projeto está licenciado sob a **Licença MIT** — veja o arquivo [LICENSE](LICENSE) para detalhes.
+## Gustavo Lopes
 
-> ⚠️ *"Ecos do Andarilho" é estritamente um projeto académico desenvolvido para fins educacionais. Não há fins comerciais.*
+### UX/UI Designer • Front-end Developer
+
+Responsável por:
+
+* identidade visual;
+* documentação;
+* estrutura visual;
+* landing page;
+* experiência do usuário.
+
+---
+
+## Erick Oliveira
+
+### Construct 3 Game Developer
+
+Responsável por:
+
+* gameplay;
+* mapas;
+* física;
+* mecânicas;
+* lógica do jogo.
+
+---
+
+# 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
 
 ---
 
 <div align="center">
-  <sub>© 2026 Ecos do Andarilho — Trabalho Académico desenvolvido no Construct 3</sub><br/>
-  <sub>💡 <i>Dica: Existem moedas escondidas pela Landing Page. Consegue encontrá-las?</i></sub>
+
+# 🌌 Ecos do Andarilho
+
+### “O ritmo guia o caminho.”
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A84FF,100:58A6FF&height=120&section=footer" width="100%"/>
+
+<br/>
+
+<sub>Projeto acadêmico desenvolvido utilizando Construct 3.</sub>
+
 </div>
