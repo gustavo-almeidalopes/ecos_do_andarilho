@@ -1,10 +1,8 @@
 <div align="center">
 
-<br/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A84FF,50:8957E5,100:EC70BD&height=140&section=header" width="100%"/>
 
 <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=34&duration=3000&pause=2000&color=FFFFFF&center=true&vCenter=true&width=900&height=80&lines=ECOS+DO+ANDARILHO" alt="ECOS DO ANDARILHO"/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=11&duration=4000&pause=3000&color=F5C518&center=true&vCenter=true&width=900&height=30&lines=Onde+a+m%C3%BAsica+guia+cada+movimento" alt="Onde a música guia cada movimento"/>
 
 <br/>
 
@@ -19,8 +17,9 @@
 </a>
 
 <br/>
+<br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=14&pause=1200&color=58A6FF&center=true&vCenter=true&width=900&lines=ONDE+CADA+SALTO+SEGUE+O+RITMO+DA+M%C3%9ASICA;PIXEL+ART+%2B+PLATFORMER+%2B+GAMEPLAY+R%C3%8DTMICA;CONSTRUCT+3+%E2%80%A2+HTML5+%E2%80%A2+MOBILE+SUPPORTED;PROJETO+ACAD%C3%8AMICO+%E2%80%A2+EST%C3%89TICA+NEO-RETRO" alt="Typing"/>
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=14&pause=1200&color=58A6FF&center=true&vCenter=true&width=900&lines=PIXEL+ART+%2B+PLATFORMER+%2B+PRECIS%C3%83O+TOTAL;CONSTRUCT+3+%E2%80%A2+HTML5+%E2%80%A2+MOBILE+SUPPORTED;HER%C3%93IS+%C3%9ANICOS+%E2%80%A2+MUNDOS+DISTINTOS;PROJETO+ACAD%C3%8AMICO+%E2%80%A2+EST%C3%89TICA+NEO-RETRO" alt="Typing"/>
 
 <br/>
 <br/>
@@ -58,7 +57,6 @@
 
 ```
 ┌─ 🎮  Sobre o Projeto
-├─ ⚡  Gameplay & Conceito
 ├─ 🦸  Heróis Jogáveis
 ├─ 🌍  Os Cinco Mundos
 ├─ 🎨  Direção Artística
@@ -75,11 +73,11 @@
 
 ---
 
-## 🎮 Sobre o Projeto
+<h2 align="center">🎮 Sobre o Projeto</h2>
 
-**Ecos do Andarilho** é um jogo de plataforma rítmico desenvolvido na engine **Construct 3** como projeto acadêmico para a disciplina de **Desenvolvimento Mobile**.
+**Ecos do Andarilho** é um jogo de plataforma desenvolvido na engine **Construct 3** como projeto acadêmico para a disciplina de **Desenvolvimento Mobile**.
 
-A proposta é simples no enunciado e ousada na execução: **transformar a música em mecânica**. Cada inimigo, cada plataforma móvel e cada armadilha aparece no compasso da trilha sonora — e o jogador precisa ler o ritmo para sobreviver.
+O conceito é simples no enunciado e ousado na execução: **transformar obstáculos dinâmicos em desafio de precisão**. Cada inimigo, cada plataforma móvel e cada armadilha exige timing perfeito e reflexos aguçados para ser superada.
 
 🎮 **Demo jogável:** [jogo-aula-de-mobile.vercel.app/game/jogo.html](https://jogo-aula-de-mobile.vercel.app/game/jogo.html)
 🌐 **Landing page oficial:** [jogo-aula-de-mobile.vercel.app](https://jogo-aula-de-mobile.vercel.app/)
@@ -93,10 +91,10 @@ A proposta é simples no enunciado e ousada na execução: **transformar a músi
 
 ### 🎯 O que faz funcionar
 
-- 🎵 **Sincronização rítmica** entre música e gameplay
 - 🕹️ **Controles fluidos** com física customizada
 - 🌌 **Ambientação imersiva** em pixel art moderna
-- ⚡ **Obstáculos dinâmicos** que respondem à batida
+- ⚡ **Obstáculos dinâmicos** com timing preciso
+- 🧩 **Três físicas distintas** para cada herói
 - 📱 **Suporte mobile** com Touch Plugin
 - ✨ **Estética Neo-Retro** com paleta vibrante
 
@@ -109,7 +107,6 @@ A proposta é simples no enunciado e ousada na execução: **transformar a músi
 |---|---|
 | 🌍 Mundos | **5** |
 | 🦸 Heróis jogáveis | **3** |
-| 🎵 Sistema rítmico | **Custom** |
 | 📱 Plataformas suportadas | **4** |
 | 🛠 Fases de desenvolvimento | **4** |
 | 🎨 Direção artística | **Neo-Retro** |
@@ -120,42 +117,15 @@ A proposta é simples no enunciado e ousada na execução: **transformar a músi
 
 ---
 
-## ⚡ Gameplay & Conceito
+<h2 align="center">🦸 Heróis Jogáveis</h2>
 
-A gameplay gira em torno da **leitura do ritmo**. A cada compasso da música, o cenário responde:
-
-```
-       🎵 BATIDA            🎵 BATIDA            🎵 BATIDA
-          │                    │                    │
-   ▼ inimigo surge      ▼ plataforma move    ▼ bloco explode
-          │                    │                    │
-       ⏱ 0.0s              ⏱ 0.5s              ⏱ 1.0s
-```
-
-Cada fase tem **andamento próprio**, e cada herói reage à física de forma diferente. O segredo é antecipar a próxima batida — não reagir a ela.
-
-<details>
-<summary><b>🎼 Como funciona o sistema rítmico (clique para expandir)</b></summary>
-
-<br/>
-
-A sincronização é construída inteiramente dentro do **Construct 3**:
-
-- O **Audio Plugin** mapeia o tempo exato de cada batida em segundos
-- Variáveis globais (`Eco_Tempo`, `Eco_Estado`) ditam quando objetos aparecem ou somem
-- O **Sine Behavior** anima plataformas no andamento do BPM da fase
-- **Event Sheets** disparam spawn de inimigos em sub-divisões do compasso
-- Feedback visual e sonoro reforça cada acerto do jogador
-
-Resultado: o jogo "respira" junto com a música.
-
-</details>
-
----
-
-## 🦸 Heróis Jogáveis
+<div align="center">
 
 Três personagens, três físicas, três formas de jogar.
+
+</div>
+
+<br/>
 
 <table>
 <tr>
@@ -166,7 +136,7 @@ Três personagens, três físicas, três formas de jogar.
 ### ⚔️ ZICK
 **O Salteador**
 
-> *"Saltar em cima dos inimigos no ritmo certo? Deixa comigo."*
+> *"Saltar em cima dos inimigos no momento certo? Deixa comigo."*
 
 🎯 Estilo: **Plataformer clássico**
 ⚙️ Mecânica: **Gravity & Jump tunados**
@@ -179,7 +149,7 @@ Três personagens, três físicas, três formas de jogar.
 ### 🌪️ ROACH
 **Tecelã das Nuvens**
 
-> *"O vento sopra sempre no andamento perfeito da música."*
+> *"Entre as nuvens, o caminho se revela para quem domina o ar."*
 
 🎯 Estilo: **Manipulação aérea**
 ⚙️ Mecânica: **`Set Gravity to 0`**
@@ -204,25 +174,25 @@ Três personagens, três físicas, três formas de jogar.
 
 ---
 
-## 🌍 Os Cinco Mundos
-
-Cada mundo é uma curva de aprendizado. Cada um introduz uma mecânica nova.
+<h2 align="center">🌍 Os Cinco Mundos</h2>
 
 <div align="center">
 
+Cada mundo é uma curva de aprendizado. Cada um introduz uma mecânica nova.
+
 | # | Mundo | Tema | Mecânica de destaque |
 |:---:|:---|:---|:---|
-| 01 | 🌳 **Vale dos Ecos** | Tutorial | Introdução ao ritmo dos "Ecos" |
+| 01 | 🌳 **Vale dos Ecos** | Tutorial | Introdução às mecânicas e aos Ecos |
 | 02 | 🏛️ **Templo Perdido** | Verticalidade | `Jump-thru` em ruínas antigas |
 | 03 | ☁️ **Jardim das Nuvens** | Precisão | Plataformas no `Sine Behavior` |
-| 04 | 🔥 **Forja do Caos** | Velocidade | Blocos que explodem na batida |
-| 05 | 🏰 **Castelo do Silêncio** | Boss Final | Música pausa, ritmos erráticos |
+| 04 | 🔥 **Forja do Caos** | Velocidade | Blocos explosivos em cadeia rápida |
+| 05 | 🏰 **Castelo do Silêncio** | Boss Final | Armadilhas imprevisíveis e reações rápidas |
 
 </div>
 
 ---
 
-## 🎨 Direção Artística
+<h2 align="center">🎨 Direção Artística</h2>
 
 <div align="center">
 <img src="./images/ui/imagem1_cenario.png" width="860" alt="Cenário"/>
@@ -248,13 +218,13 @@ A identidade visual mistura referências clássicas e contemporâneas:
 | 🌃 **Parallax** | Camadas de fundo independentes |
 | 🎨 **Paleta** | Tons saturados com contraste alto |
 | 🌫 **Atmosfera** | Iluminação custom por camada |
-| ⚡ **Feedback** | Pulse visual a cada batida |
+| ⚡ **Feedback** | Pulse visual a cada ação do jogador |
 
 </div>
 
 ---
 
-## 🧠 Stack Técnica
+<h2 align="center">🧠 Stack Técnica</h2>
 
 <table>
 <tr>
@@ -275,7 +245,6 @@ A identidade visual mistura referências clássicas e contemporâneas:
 - `Solid` — colisões
 - `Sine` — plataformas oscilantes
 - `Touch` — controles mobile
-- `Audio` — sistema rítmico
 
 </td>
 </tr>
@@ -283,7 +252,7 @@ A identidade visual mistura referências clássicas e contemporâneas:
 
 ---
 
-## 📱 Compatibilidade
+<h2 align="center">📱 Compatibilidade</h2>
 
 <div align="center">
 
@@ -297,7 +266,7 @@ A identidade visual mistura referências clássicas e contemporâneas:
 
 ---
 
-## 🗂 Estrutura do Repositório
+<h2 align="center">🗂 Estrutura do Repositório</h2>
 
 ```
 ecos_do_andarilho/
@@ -319,7 +288,7 @@ ecos_do_andarilho/
 
 ---
 
-## 🚀 Como Executar Localmente
+<h2 align="center">🚀 Como Executar Localmente</h2>
 
 #### 1. Clone o repositório
 
@@ -354,13 +323,13 @@ http://localhost:8080
 
 ---
 
-## 🛠 Fases de Desenvolvimento
+<h2 align="center">🛠 Fases de Desenvolvimento</h2>
 
 ```
 ┌────────┬─────────────────────┬─────────────────────────────────────────────┐
 │  Fase  │       Etapa         │                Entregáveis                  │
 ├────────┼─────────────────────┼─────────────────────────────────────────────┤
-│  ▣ 01  │  Conceito & GDD     │  Paleta, sprites iniciais, lógica de ritmo  │
+│  ▣ 01  │  Conceito & GDD     │  Paleta, sprites iniciais, lógica de jogo   │
 │  ▣ 02  │  Protótipo no C3    │  Behaviors, Event Sheets, testes de colisão │
 │  ▣ 03  │  Polimento          │  Som, QA, exportação HTML5, landing page    │
 │  ▣ 04  │  Apresentação       │  Defesa oral, demo ao vivo, entrega final   │
@@ -369,7 +338,7 @@ http://localhost:8080
 
 ---
 
-## ❓ FAQ
+<h2 align="center">❓ FAQ</h2>
 
 <details>
 <summary><b>Por que Construct 3?</b></summary>
@@ -385,7 +354,7 @@ A escolha foi pragmática: o sistema de **Eventos visuais** permite iterar muito
 
 <br/>
 
-Sincronizar a lógica dos pulos e o spawn dos inimigos com as batidas da música. A solução foi usar o **plugin de Áudio do Construct 3** mapeando o tempo exato (em segundos) de cada compasso para variáveis globais.
+Sincronizar o spawn de inimigos e a movimentação de plataformas com os eventos de cada fase. A solução foi usar **Event Sheets do Construct 3** mapeando o tempo exato de cada ocorrência para variáveis globais (`Eco_Tempo`, `Eco_Estado`).
 
 </details>
 
@@ -407,18 +376,9 @@ O **Touch Plugin** do Construct 3 detecta dispositivos com tela tátil e renderi
 
 </details>
 
-<details>
-<summary><b>Como o ritmo é sincronizado com a gameplay?</b></summary>
-
-<br/>
-
-O Audio Plugin do Construct 3 expõe o tempo de reprodução em segundos. Mapeamos cada batida em uma variável global (`Eco_Tempo`) e amarramos os spawns de inimigos, plataformas e armadilhas a sub-divisões desse contador via Event Sheets.
-
-</details>
-
 ---
 
-## 👥 Equipe
+<h2 align="center">👥 Equipe</h2>
 
 <table>
 <tr>
@@ -456,7 +416,7 @@ Engenheiro principal do jogo na engine Construct 3. Construiu mapas, fases, sist
 
 ---
 
-## 🔗 Links Oficiais
+<h2 align="center">🔗 Links Oficiais</h2>
 
 <div align="center">
 
@@ -469,9 +429,13 @@ Engenheiro principal do jogo na engine Construct 3. Construiu mapas, fases, sist
 
 ---
 
-## 📄 Licença
+<h2 align="center">📄 Licença</h2>
+
+<div align="center">
 
 Distribuído sob a licença **MIT**. Veja o arquivo [LICENSE](./LICENSE) para detalhes.
+
+</div>
 
 ---
 
@@ -479,7 +443,7 @@ Distribuído sob a licença **MIT**. Veja o arquivo [LICENSE](./LICENSE) para de
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:EC70BD,50:8957E5,100:0A84FF&height=120&section=footer" width="100%"/>
 
-### 🌌 *"O ritmo guia o caminho."*
+### 🌌 *"Cada salto deixa um eco. Cada eco escreve o caminho."*
 
 <br/>
 
