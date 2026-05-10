@@ -6,16 +6,12 @@
 
 <br/>
 
-<img src="./images/ui/capa.png" width="350" alt="Banner Ecos do Andarilho"/>
+<img src="./images/ui/capa.png" width="850" alt="Banner Ecos do Andarilho"/>
 
 <br/>
 <br/>
 
-</div>
-
-### 🎮 *Um jogo de plataforma rítmico onde a música guia cada movimento.*
-
-<div align="center">
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=14&pause=1000&color=58A6FF&center=true&vCenter=true&width=1000&lines=UM+JOGO+ONDE+CADA+SALTO+SEGUE+O+RITMO+DA+MÚSICA;PIXEL+ART+%2B+PLATFORMER+%2B+GAMEPLAY+RÍTMICA;CONSTRUCT+3+%7C+HTML5+%7C+MOBILE+SUPPORTED;PROJETO+ACADÊMICO+COM+ESTÉTICA+NEO-RETRO" alt="Typing Animation"/>
 
 <br/>
 
@@ -27,8 +23,7 @@
 <img src="https://img.shields.io/badge/LICENSE-MIT-lightgrey?style=for-the-badge"/>
 
 <br/>
-
-</div>
+<br/>
 
 > ### ⚡ “Cada salto deixa um eco.”
 
@@ -40,17 +35,17 @@
 
 **Ecos do Andarilho** é um jogo de plataforma rítmico desenvolvido utilizando **Construct 3**, combinando gameplay clássica, pixel art e sincronização musical em uma experiência Neo-Retro moderna.
 
-O projeto foi criado como trabalho acadêmico para a disciplina de **Desenvolvimento Mobile**, com o objetivo de unir:
+Criado como projeto acadêmico para a disciplina de **Desenvolvimento Mobile**, o projeto foi pensado para unir:
 
-* 🎵 gameplay sincronizada com música;
-* 🕹️ movimentação fluida;
-* 🌌 ambientação imersiva;
-* ⚡ obstáculos dinâmicos;
-* 🎨 identidade visual estilizada;
-* 📱 compatibilidade mobile;
-* ✨ experiência visual moderna.
+- 🎵 gameplay sincronizada com música;
+- 🕹️ movimentação fluida;
+- 🌌 ambientação imersiva;
+- ⚡ obstáculos dinâmicos;
+- 🎨 identidade visual estilizada;
+- 📱 compatibilidade mobile;
+- ✨ experiência visual moderna.
 
-A proposta principal do jogo é transformar a música em mecânica, fazendo com que o jogador acompanhe o ritmo do cenário para superar plataformas, inimigos e obstáculos dinâmicos.
+A proposta principal do jogo é transformar a música em mecânica, fazendo com que o jogador acompanhe o ritmo do cenário para superar plataformas, obstáculos e inimigos.
 
 ---
 
@@ -58,7 +53,41 @@ A proposta principal do jogo é transformar a música em mecânica, fazendo com 
 
 # 🌠 EXPERIÊNCIA VISUAL
 
-<img src="./images/ui/imagem1_cenario.png" width="750px"/>
+<img src="./images/ui/imagem1_cenario.png" width="750" alt="Cenário do jogo"/>
+
+<br/>
+<br/>
+
+<table>
+<tr>
+
+<td align="center">
+<img src="./images/chars/personagem1.png" width="160" alt="Kaelen"/>
+
+### ⚔️ Kaelen
+*O Salteador*
+</td>
+
+<td align="center">
+<img src="./images/chars/personagem2.png" width="160" alt="Lyra"/>
+
+### 🌪️ Lyra
+*A Tecelã das Nuvens*
+</td>
+
+<td align="center">
+<img src="./images/chars/personagem3.png" width="160" alt="Grom"/>
+
+### 🛡️ Grom
+*O Guardião de Pedra*
+</td>
+
+</tr>
+</table>
+
+<br/>
+
+> ### ✨ “Cada personagem possui habilidades, física e gameplay únicas.”
 
 </div>
 
@@ -66,28 +95,22 @@ A proposta principal do jogo é transformar a música em mecânica, fazendo com 
 
 # ⚡ Gameplay
 
-<div align="center">
-
-# 🎵 Plataforma Rítmica
-
-</div>
+## 🎵 Plataforma Rítmica
 
 A gameplay gira em torno da sincronização entre:
-
-* movimentação;
-* saltos;
-* timing;
-* plataformas móveis;
-* obstáculos dinâmicos;
-* comportamento dos inimigos.
+- movimentação;
+- saltos;
+- timing;
+- plataformas móveis;
+- obstáculos dinâmicos;
+- comportamento dos inimigos.
 
 Cada fase possui:
-
-* ritmo próprio;
-* velocidade diferente;
-* ambientação única;
-* desafios progressivos;
-* mecânicas específicas.
+- ritmo próprio;
+- velocidade diferente;
+- ambientação única;
+- desafios progressivos;
+- mecânicas específicas.
 
 ---
 
@@ -95,111 +118,37 @@ Cada fase possui:
 
 <div align="center">
 
-| Mundo                   | Tema          | Destaque           |
-| ----------------------- | ------------- | ------------------ |
-| 🌳 **Floresta Viva**    | Introdução    | Gameplay básica    |
-| 🏛️ **Ruínas Antigas**  | Verticalidade | Exploração         |
-| ☁️ **Reino das Nuvens** | Precisão      | Plataformas móveis |
-| 🔥 **Covil Final**      | Boss Battle   | Ritmo acelerado    |
+| Mundo | Tema | Destaque |
+|---|---|---|
+| 🌳 **Floresta Viva** | Introdução | Gameplay básica |
+| 🏛️ **Ruínas Antigas** | Verticalidade | Exploração |
+| ☁️ **Reino das Nuvens** | Precisão | Plataformas móveis |
+| 🔥 **Covil Final** | Boss Battle | Ritmo acelerado |
 
 </div>
-
----
-
-# 🦸 Personagens
-
-<div align="center">
-
-# ⚔️ HERÓIS
-
-</div>
-
----
-
-## ⚔️ Kaelen — O Salteador
-
-> *“O ritmo certo transforma qualquer salto em vitória.”*
-
-### Características
-
-* Gameplay equilibrada;
-* movimentação clássica;
-* foco em precisão;
-* física refinada.
-
-### Mecânicas
-
-* Ajuste manual de gravidade;
-* controle refinado de salto;
-* movimentação responsiva.
-
----
-
-## 🌪️ Lyra — Tecelã das Nuvens
-
-> *“A gravidade também dança.”*
-
-### Características
-
-* Controle gravitacional;
-* mobilidade aérea;
-* gameplay dinâmica;
-* movimentação avançada.
-
-### Mecânicas
-
-* Manipulação de gravidade;
-* física adaptativa;
-* movimentação aérea.
-
----
-
-## 🛡️ Grom — Guardião de Pedra
-
-> *“Montanhas não recuam.”*
-
-### Características
-
-* Resistência elevada;
-* sistema de shield;
-* absorção de dano;
-* gameplay defensiva.
-
-### Mecânicas
-
-* Variáveis booleanas;
-* controle de dano;
-* troca dinâmica de animações.
 
 ---
 
 # 🎨 Direção Artística
 
 A identidade visual do projeto foi inspirada em:
+- 🎮 jogos clássicos de plataforma;
+- 🌌 interfaces Neo-Retro;
+- ✨ pixel art moderna;
+- 📺 experiências indie contemporâneas;
+- 🎨 paletas vibrantes;
+- 🌠 ambientações imersivas.
 
-* 🎮 jogos clássicos de plataforma;
-* 🌌 interfaces Neo-Retro;
-* ✨ pixel art moderna;
-* 📺 experiências indie contemporâneas;
-* 🎨 paletas vibrantes;
-* 🌠 ambientações imersivas.
+## ✨ Elementos Visuais
 
----
-
-<div align="center">
-
-# ✨ ELEMENTOS VISUAIS
-
-</div>
-
-* Pixel Art;
-* Parallax;
-* Paleta vibrante;
-* Cenários estilizados;
-* Atmosfera imersiva;
-* Feedback visual dinâmico;
-* Interface Neo-Retro;
-* HUD inspirada em jogos arcade.
+- Pixel Art;
+- Parallax;
+- Paleta vibrante;
+- Cenários estilizados;
+- Atmosfera imersiva;
+- Feedback visual dinâmico;
+- Interface Neo-Retro;
+- HUD inspirada em jogos arcade.
 
 ---
 
@@ -207,14 +156,14 @@ A identidade visual do projeto foi inspirada em:
 
 <div align="center">
 
-| Tecnologia        | Finalidade                |
-| ----------------- | ------------------------- |
-| Construct 3       | Desenvolvimento principal |
-| HTML5 Export      | Build Web                 |
-| Platform Behavior | Física principal          |
-| Touch Plugin      | Controles mobile          |
-| Event Sheets      | Sistema de lógica         |
-| Sine Behavior     | Plataformas dinâmicas     |
+| Tecnologia | Finalidade |
+|---|---|
+| Construct 3 | Desenvolvimento principal |
+| HTML5 Export | Build Web |
+| Platform Behavior | Física principal |
+| Touch Plugin | Controles mobile |
+| Event Sheets | Sistema de lógica |
+| Sine Behavior | Plataformas dinâmicas |
 
 </div>
 
@@ -224,12 +173,12 @@ A identidade visual do projeto foi inspirada em:
 
 <div align="center">
 
-| Plataforma              | Suporte |
-| ----------------------- | ------- |
-| 💻 Desktop              | ✅       |
-| 📱 Smartphones          | ✅       |
-| 📲 Tablets              | ✅       |
-| 🌐 Navegadores modernos | ✅       |
+| Plataforma | Suporte |
+|---|---|
+| 💻 Desktop | ✅ |
+| 📱 Smartphones | ✅ |
+| 📲 Tablets | ✅ |
+| 🌐 Navegadores modernos | ✅ |
 
 </div>
 
@@ -237,7 +186,7 @@ A identidade visual do projeto foi inspirada em:
 
 # ⚙️ Estrutura do Projeto
 
-```bash id="eqqp7q"
+```bash
 jogo_aula_de_mobile/
 │
 ├── game/
@@ -253,7 +202,7 @@ jogo_aula_de_mobile/
 ├── js/
 │
 └── README.md
-```
+````
 
 ---
 
@@ -261,7 +210,7 @@ jogo_aula_de_mobile/
 
 ## Clone o projeto
 
-```bash id="9y9d3o"
+```bash
 git clone https://github.com/gustavo-almeidalopes/jogo_aula_de_mobile.git
 ```
 
@@ -269,7 +218,7 @@ git clone https://github.com/gustavo-almeidalopes/jogo_aula_de_mobile.git
 
 ## Acesse a pasta
 
-```bash id="mx3c04"
+```bash
 cd jogo_aula_de_mobile
 ```
 
@@ -279,7 +228,7 @@ cd jogo_aula_de_mobile
 
 Abra o arquivo:
 
-```bash id="4v3wr7"
+```bash
 game/jogo.html
 ```
 
