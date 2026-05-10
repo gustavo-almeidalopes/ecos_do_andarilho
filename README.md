@@ -61,25 +61,40 @@ A proposta principal do jogo é transformar a música em mecânica, fazendo com 
 <table>
 <tr>
 
-<td align="center">
-<img src="./images/chars/personagem1.png" width="160" alt="Kaelen"/>
+<td align="center" width="33%">
 
-### ⚔️ Kaelen
-*O Salteador*
+<img src="https://raw.githubusercontent.com/gustavo-almeidalopes/ecos_do_andarilho/main/images/chars/personagem1.png" width="180" alt="Kaelen"/>
+
+<br/>
+
+## ⚔️ Kaelen
+
+### *O Salteador*
+
 </td>
 
-<td align="center">
-<img src="./images/chars/personagem2.png" width="160" alt="Lyra"/>
+<td align="center" width="33%">
 
-### 🌪️ Lyra
-*A Tecelã das Nuvens*
+<img src="https://raw.githubusercontent.com/gustavo-almeidalopes/ecos_do_andarilho/main/images/chars/personagem2.png" width="180" alt="Lyra"/>
+
+<br/>
+
+## 🌪️ Lyra
+
+### *A Tecelã das Nuvens*
+
 </td>
 
-<td align="center">
-<img src="./images/chars/personagem3.png" width="160" alt="Grom"/>
+<td align="center" width="33%">
 
-### 🛡️ Grom
-*O Guardião de Pedra*
+<img src="https://raw.githubusercontent.com/gustavo-almeidalopes/ecos_do_andarilho/main/images/chars/personagem3.png" width="180" alt="Grom"/>
+
+<br/>
+
+## 🛡️ Grom
+
+### *O Guardião de Pedra*
+
 </td>
 
 </tr>
