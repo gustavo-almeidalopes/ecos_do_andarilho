@@ -6,17 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#0F172A">
-  <title>Documentação Técnica — Ecos do Andarilho</title>
+  <title>GDD & Arquitetura — Ecos do Andarilho</title>
   
-  <!-- Favicon Corrigido -->
   <link rel="icon" type="image/x-icon" href="images/ui/favicon.ico">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Bibliotecas de Animação -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -41,12 +38,10 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; overscroll-behavior: none; }
     
-    /* Nota: O display: flex aqui é o que causa problemas na impressão se não for removido no @media print */
     body {
       background: var(--bg-panel); color: var(--text);
-      font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.8;
+      font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.8;
       overflow-x: hidden; position: relative; display: flex; flex-direction: column;
-      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
     }
     
     /* Ruído estático (Textura de fundo) */
@@ -72,7 +67,7 @@
     ::-webkit-scrollbar-track { background: var(--bg-panel); border-left: 2px solid var(--stone); }
     ::-webkit-scrollbar-thumb { background: var(--stone); border: 2px solid var(--bg-panel); border-radius: 8px; }
 
-    .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 10; }
+    .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 10; }
 
     /* Componentes UI */
     .btn-3d {
@@ -85,392 +80,319 @@
     .btn-3d:hover { background: var(--grass-light); transform: translateY(-2px); box-shadow: inset 0 3px 0 rgba(255,255,255,0.5), inset 0 -3px 0 rgba(0,0,0,0.1), 0 6px 0 var(--grass-dark), 0 10px 0 #022c22; color: #022c22; }
     .btn-secondary { background: var(--stone-dark); color: #F8FAFC; box-shadow: inset 0 3px 0 rgba(255,255,255,0.06), inset 0 -3px 0 rgba(0,0,0,0.3), 0 4px 0 var(--stone), 0 8px 0 var(--brown-dark); border-color: var(--brown-dark); }
 
-    /* Barra Superior / Apenas Web */
+    /* Barra Superior */
     .fixed-nav { position: fixed; top: 20px; left: 20px; z-index: 1001; }
 
     /* ── CABEÇALHO WEB ── */
     .web-header {
-      padding: 100px 24px 60px; text-align: center; border-bottom: 4px dashed var(--stone);
-      margin-bottom: 60px; background: #020617; color: #FFF;
+      padding: 120px 24px 80px; text-align: center; border-bottom: 4px dashed var(--stone);
+      margin-bottom: 60px; background: linear-gradient(180deg, #020617 0%, var(--bg-panel) 100%); color: #FFF;
     }
-    .web-header h1 { font-size: clamp(24px, 4vw, 42px); color: #FFF; text-shadow: 4px 4px 0 var(--accent); margin-bottom: 12px; }
-    .web-header h2 { font-size: clamp(12px, 2vw, 16px); color: var(--gold-light); }
-    .doc-meta-web { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
-    .meta-tag { background: rgba(255,255,255,0.1); border: 2px solid var(--stone); padding: 8px 16px; border-radius: 6px; font-size: 10px; font-family: 'Press Start 2P'; color: #FFF; }
+    .web-header h1 { font-size: clamp(28px, 5vw, 56px); color: #FFF; text-shadow: 4px 4px 0 var(--accent); margin-bottom: 16px; letter-spacing: -2px; }
+    .web-header h2 { font-size: clamp(12px, 2vw, 18px); color: var(--gold-light); letter-spacing: 1px; }
+    .doc-meta-web { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
+    .meta-tag { background: rgba(255,255,255,0.05); border: 2px solid var(--stone); padding: 10px 18px; border-radius: 8px; font-size: 10px; font-family: 'Press Start 2P'; color: #FFF; box-shadow: 4px 4px 0 rgba(0,0,0,0.3); }
     .meta-tag span { color: var(--gold-light); }
 
     /* ── ÍNDICE (TOC) ── */
-    .toc-box { background: var(--stone-dark); border: 4px solid var(--stone); padding: 32px; border-radius: 16px; margin-bottom: 60px; box-shadow: 8px 8px 0 rgba(0,0,0,0.5); }
-    .toc-box h4 { font-size: 12px; color: var(--gold); margin-bottom: 24px; border-bottom: 2px dashed var(--stone); padding-bottom: 12px; }
-    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .toc-grid a { font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 600; padding: 10px; border-radius: 8px; border: 2px solid transparent; }
-    .toc-grid a:hover { color: var(--text); background: rgba(255,255,255,0.05); border-color: var(--stone); transform: translateX(4px); transition: 0.2s; }
+    .toc-box { background: var(--stone-dark); border: 4px solid var(--stone); padding: 36px; border-radius: 16px; margin-bottom: 80px; box-shadow: 8px 8px 0 rgba(0,0,0,0.5); }
+    .toc-box h4 { font-size: 13px; color: var(--gold); margin-bottom: 24px; border-bottom: 2px dashed var(--stone); padding-bottom: 12px; }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .toc-grid a { font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 600; padding: 12px 16px; border-radius: 8px; border: 2px solid transparent; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.1); }
+    .toc-grid a::before { content: '>'; font-family: 'Press Start 2P'; font-size: 10px; color: var(--accent); opacity: 0.5; transition: opacity 0.2s; }
+    .toc-grid a:hover { color: var(--text); background: rgba(255,255,255,0.05); border-color: var(--stone); transform: translateX(6px); transition: 0.2s; }
+    .toc-grid a:hover::before { opacity: 1; }
 
     /* ── SEÇÕES ── */
-    .doc-section { margin-bottom: 60px; scroll-margin-top: 60px; padding: 30px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 2px solid var(--stone-dark); }
-    .doc-section h2 { font-size: clamp(16px, 2vw, 22px); color: var(--sky-light); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 4px dashed var(--stone); display: flex; align-items: center; gap: 12px; }
-    .doc-section h2::before { content: '>'; color: var(--accent); }
-    .doc-section h3 { font-size: 14px; color: var(--gold-light); margin: 30px 0 15px; }
-    .doc-section p, .doc-section ul { margin-bottom: 16px; font-size: 14px; color: var(--text); }
-    .doc-section ul { margin-left: 24px; }
+    .doc-section { margin-bottom: 80px; scroll-margin-top: 60px; padding: 48px; background: rgba(255,255,255,0.02); border-radius: 20px; border: 2px solid var(--stone-dark); box-shadow: inset 0 0 40px rgba(0,0,0,0.2); }
+    .doc-section h2 { font-size: clamp(18px, 2.5vw, 26px); color: var(--sky-light); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 4px dashed var(--stone); display: flex; align-items: center; gap: 16px; line-height: 1.4; }
+    .doc-section h2::before { content: '■'; color: var(--accent); font-size: 1.2rem; }
+    .doc-section h3 { font-size: 16px; color: var(--gold-light); margin: 40px 0 20px; text-transform: uppercase; letter-spacing: 1px; }
+    .doc-section p { margin-bottom: 20px; font-size: 15px; color: var(--text); }
+    .doc-section ul { margin-left: 24px; margin-bottom: 24px; }
+    .doc-section li { margin-bottom: 10px; color: var(--text-muted); }
+    .doc-section strong { color: var(--gold-light); }
 
     /* ── BLOCOS DE CÓDIGO (TERMINAL) ── */
-    .terminal-box { background: var(--bg-code); border: 4px solid var(--stone-dark); border-radius: 12px; margin: 24px 0; overflow: hidden; width: 100%; box-shadow: 6px 6px 0 rgba(0,0,0,0.3); }
-    .terminal-header { background: var(--stone-dark); padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+    .terminal-box { background: var(--bg-code); border: 4px solid var(--stone-dark); border-radius: 12px; margin: 30px 0; overflow: hidden; width: 100%; box-shadow: 8px 8px 0 rgba(0,0,0,0.4); }
+    .terminal-header { background: var(--stone-dark); padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #000; }
     .terminal-btn { width: 12px; height: 12px; border-radius: 50%; }
     .terminal-btn.r { background: #ef4444; } .terminal-btn.y { background: #eab308; } .terminal-btn.g { background: #22c55e; }
-    .terminal-title { margin-left: 10px; font-family: 'Press Start 2P'; font-size: 8px; color: #FFF; }
-    .terminal-body { padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 12px; color: #E2E8F0; white-space: pre; }
-    .terminal-body .keyword { color: #F472B6; } .terminal-body .string { color: #34D399; } .terminal-body .function { color: #60A5FA; } .terminal-body .comment { color: #9CA3AF; font-style: italic; }
+    .terminal-title { margin-left: 10px; font-family: 'Press Start 2P'; font-size: 9px; color: #9CA3AF; letter-spacing: 1px; }
+    .terminal-body { padding: 24px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 13px; color: #E2E8F0; white-space: pre; line-height: 1.7; }
+    
+    /* Syntax Highlighting Base */
+    .keyword { color: #F472B6; } /* Pink */
+    .string { color: #34D399; } /* Green */
+    .function { color: #60A5FA; } /* Blue */
+    .comment { color: #6B7280; font-style: italic; } /* Gray */
+    .number { color: #FBBF24; } /* Yellow */
+    .variable { color: #E879F9; } /* Light Pink */
+    .operator { color: #38BDF8; } /* Light Blue */
 
     /* ── CAIXAS DE DESTAQUE ── */
-    .dialog-box { background: var(--stone-dark); border: 4px solid var(--stone); padding: 24px; border-radius: 12px; margin: 24px 0; display: flex; gap: 20px; box-shadow: 6px 6px 0 rgba(0,0,0,0.3); }
+    .dialog-box { background: var(--stone-dark); border: 4px solid var(--stone); padding: 28px; border-radius: 16px; margin: 30px 0; display: flex; gap: 24px; box-shadow: 6px 6px 0 rgba(0,0,0,0.3); align-items: flex-start; }
     .dialog-box.info { border-color: var(--sky-light); }
+    .dialog-box.warning { border-color: var(--accent); }
+    .dialog-box p { margin: 0; font-size: 14.5px; line-height: 1.7; }
+    .dialog-icon { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-family: 'Press Start 2P'; font-size: 16px; }
+    .info .dialog-icon { background: rgba(59, 130, 246, 0.2); color: var(--sky-light); }
+    .warning .dialog-icon { background: rgba(225, 29, 72, 0.2); color: var(--accent); }
 
     /* ── TABELAS ── */
-    .doc-table-wrapper { width: 100%; overflow-x: auto; margin: 24px 0; border: 4px solid var(--stone); border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; background: var(--bg-panel); min-width: 600px; }
-    th { background: var(--stone-dark); color: var(--gold-light); font-family: 'Press Start 2P'; font-size: 9px; padding: 16px; text-align: left; border-bottom: 4px solid var(--stone); }
-    td { padding: 16px; border-bottom: 2px dashed var(--stone-dark); color: var(--text); font-size: 13px; }
-    tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+    .doc-table-wrapper { width: 100%; overflow-x: auto; margin: 30px 0; border: 4px solid var(--stone); border-radius: 12px; box-shadow: 8px 8px 0 rgba(0,0,0,0.3); }
+    table { width: 100%; border-collapse: collapse; background: var(--bg-panel); min-width: 700px; }
+    th { background: var(--stone-dark); color: var(--gold-light); font-family: 'Press Start 2P'; font-size: 10px; padding: 20px; text-align: left; border-bottom: 4px solid var(--stone); letter-spacing: 1px; }
+    td { padding: 18px 20px; border-bottom: 2px dashed var(--stone-dark); color: var(--text-muted); font-size: 14px; font-weight: 500; }
+    td strong { color: var(--text); }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    tr:hover td { background: rgba(255,255,255,0.05); }
 
-    .arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
-    .arch-card { border: 2px dashed var(--stone); padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.02); }
-    .arch-card h4 { font-size: 12px; color: var(--accent-hover); margin-bottom: 12px; }
+    /* ── CARDS DE ARQUITETURA ── */
+    .arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 30px 0; }
+    .arch-card { border: 2px solid var(--stone); padding: 28px; border-radius: 16px; background: rgba(255,255,255,0.03); transition: transform 0.2s, background 0.2s; position: relative; overflow: hidden; }
+    .arch-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--stone); transition: background 0.2s; }
+    .arch-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.05); }
+    .arch-card:hover::before { background: var(--sky-light); }
+    .arch-card h4 { font-size: 12px; color: var(--gold-light); margin-bottom: 12px; line-height: 1.4; }
+    .arch-card p { font-size: 14px; margin: 0; color: var(--text-muted); }
 
-    footer { text-align: center; padding: 40px 20px; background: #020617; color: #FFF; border-top: 8px solid var(--stone-dark); font-size: 12px; margin-top: 40px; }
+    /* ── SCROLL PROGRESS ── */
+    #scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 6px; z-index: 10001; pointer-events: none; background: var(--stone-dark); }
+    #scroll-progress-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.08s linear; }
 
+    footer { text-align: center; padding: 60px 20px; background: #020617; color: #FFF; border-top: 8px solid var(--stone-dark); font-size: 12px; margin-top: 60px; }
 
-    /* ================================================================
-       CONFIGURAÇÕES ESTritas DE IMPRESSÃO (PDF - A4)
-       ================================================================ */
-    
-    @media screen {
-      .print-only-cover { display: none !important; }
-    }
-
-    @media print {
-      /* Margens zeradas para ocupação total da página na capa. Os paddings farão o espaçamento. */
-      @page { size: A4; margin: 0; }
-      
-      /* FORÇA impressão de cores de fundo sem exceções */
-      * {
-        -webkit-print-color-adjust: exact !important; 
-        print-color-adjust: exact !important; 
-        color-adjust: exact !important;
-      }
-      
-      /* CORREÇÃO DO BUG CRÍTICO DAS PÁGINAS BRANCAS:
-         1. Remover o `display: flex` do body que bloqueia a paginação
-         2. Garantir que `height` é auto, não 100%
-         3. Aplicar display: block globalmente nas tags estruturais */
-      html, body { 
-        background: #0F172A !important; 
-        color: #F8FAFC !important; 
-        margin: 0 !important; 
-        padding: 0 !important; 
-        width: 100% !important; 
-        height: auto !important;
-        display: block !important; /* <--- FIX CRÍTICO AQUI */
-        overflow: visible !important;
-      }
-      
-      /* Esconder navegação Web e botões indesejados */
-      .no-print, .web-header, .fixed-nav, body::before, body::after, #scroll-progress { display: none !important; }
-      
-      /* O container principal não pode ter overflow escondido nem limites de altura */
-      .container { 
-        max-width: 100% !important; 
-        width: 100% !important; 
-        padding: 0 !important; 
-        margin: 0 !important; 
-        display: block !important;
-        overflow: visible !important;
-      }
-
-      /* ── CAPA A4 TIPOGRÁFICA (Preenche exatamente a primeira folha) ── */
-      .print-only-cover {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        height: 297mm; /* Altura de uma página A4 exata */
-        background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #064E3B 100%) !important;
-        page-break-after: always !important; /* Força quebra de página logo a seguir */
-        break-after: page !important;
-        box-sizing: border-box;
-        padding: 20mm;
-        border: 10px solid #FDE047 !important;
-      }
-      
-      .print-only-cover h1 {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 34pt !important;
-        color: #FFF !important;
-        text-shadow: 6px 6px 0px #E11D48 !important;
-        margin-bottom: 20px;
-        line-height: 1.3;
-      }
-      
-      .print-only-cover h2 {
-        font-family: 'Press Start 2P', monospace;
-        font-size: 16pt !important;
-        color: #34D399 !important;
-        margin-bottom: 50px;
-        text-shadow: 2px 2px 0px #000 !important;
-      }
-      
-      .print-only-cover .meta-box { 
-        background: rgba(2, 6, 23, 0.8) !important; 
-        border: 4px solid #3B82F6 !important; 
-        padding: 30px; 
-        border-radius: 16px; 
-        width: 80%;
-        box-shadow: 8px 8px 0px rgba(0,0,0,0.5) !important;
-      }
-      
-      .print-only-cover p { 
-        color: #FFF !important; 
-        font-size: 12pt !important; 
-        margin: 8px 0; 
-        font-family: 'Press Start 2P', monospace; 
-      }
-
-      /* ── FORMATAÇÃO DAS PÁGINAS DE CONTEÚDO (Permitir quebra natural) ── */
-      .doc-section, .toc-box { 
-        width: 100% !important;
-        height: auto !important;
-        padding: 15mm 20mm !important; /* Margem da página resolvida via padding dos blocos */
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        border: none !important;
-        border-bottom: 4px solid #1F2937 !important;
-        border-radius: 0 !important;
-        background: #0F172A !important;
-        display: block !important;
-        /* REMOVIDO o page-break-inside: avoid dos blocos grandes para permitir a quebra das páginas! */
-        page-break-inside: auto !important;
-        break-inside: auto !important;
-      }
-      
-      .page-break-before { 
-        page-break-before: always !important; 
-        break-before: page !important; 
-      }
-      
-      /* Tipografia Print */
-      h2 { color: #60A5FA !important; border-bottom: 2pt solid #1F2937 !important; padding-bottom: 10pt; page-break-after: avoid !important; }
-      h3 { color: #FDE047 !important; page-break-after: avoid !important; }
-      p, li { color: #F8FAFC !important; font-size: 11pt !important; line-height: 1.7; }
-
-      /* Tabelas e Caixas de Código na Impressão */
-      /* Apenas protegemos blocos pequenos de quebrarem a meio */
-      .terminal-box, .dialog-box, .doc-table-wrapper, .arch-card { 
-        border: 2pt solid #4B5563 !important; 
-        background: #020617 !important; 
-        box-shadow: none !important; 
-        page-break-inside: avoid !important; /* Estes podem ter avoid para não separar o código em 2 páginas */
-        break-inside: avoid !important;
-        width: 100% !important;
-        display: block !important;
-        margin-bottom: 15px !important;
-      }
-      .terminal-header { background: #1F2937 !important; border-bottom: 2pt solid #000 !important; }
-      .terminal-title { color: #FFF !important; }
-      .terminal-body { color: #E2E8F0 !important; font-size: 9pt !important; white-space: pre-wrap !important; word-wrap: break-word !important; }
-      
-      table, th, td { border: 1pt solid #374151 !important; color: #F8FAFC !important; background: #0F172A !important; }
-      th { background: #1F2937 !important; color: #FDE047 !important; font-size: 9pt !important; }
+    @media (max-width: 768px) {
+      .doc-section { padding: 24px 20px; }
+      .terminal-body { font-size: 11px; padding: 16px; }
+      .web-header h1 { font-size: 24px; }
+      .arch-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body class="pattern-checkers">
 
-  <!-- Botão Flutuante (Apenas Web) -->
-  <div class="fixed-nav no-print">
+  <!-- PROGRESS BAR -->
+  <div id="scroll-progress"><div id="scroll-progress-fill"></div></div>
+
+  <!-- BOTÃO FLUTUANTE UI -->
+  <div class="fixed-nav">
     <a href="index.html" class="btn-3d btn-secondary">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-      <span class="desktop-only">PÁGINA INICIAL</span>
+      <span class="desktop-only">VOLTAR</span>
     </a>
   </div>
 
-  <!-- =========================================================
-       CAPA EXCLUSIVA PARA PDF (A4) - Fica oculta na Web
-       ========================================================= -->
-  <div class="print-only-cover">
-    <h1>DOCUMENTAÇÃO<br>TÉCNICA</h1>
-    <h2>ECOS DO ANDARILHO</h2>
-    <div class="meta-box">
-      <p style="font-size: 9pt !important; color: #9CA3AF !important;">ENGINE ALVO</p>
-      <p style="margin-bottom: 25px; color: #60A5FA !important;">Construct 3 (WebGL / HTML5)</p>
-      
-      <p style="font-size: 9pt !important; color: #9CA3AF !important;">DESENVOLVEDORES</p>
-      <p style="margin-bottom: 25px; color: #34D399 !important;">Gustavo Lopes & Erick Oliveira</p>
-      
-      <p style="font-size: 9pt !important; color: #9CA3AF !important;">STATUS DA BUILD</p>
-      <p style="color: #F43F5E !important;">Arquitetura & GDD V1.2</p>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       CABEÇALHO WEB
-       ========================================================= -->
-  <header class="web-header gs-stagger no-print">
-    <h1 class="pixel-font">DOCUMENTAÇÃO TÉCNICA</h1>
-    <h2 class="pixel-font">ECOS DO ANDARILHO</h2>
+  <!-- CABEÇALHO -->
+  <header class="web-header gs-stagger">
+    <h1 class="pixel-font">ARQUITETURA DE SOFTWARE</h1>
+    <h2 class="pixel-font">ECOS DO ANDARILHO — GAME DESIGN DOCUMENT</h2>
     <div class="doc-meta-web">
-      <div class="meta-tag"><span>ENGINE</span> Construct 3</div>
-      <div class="meta-tag"><span>DEVS</span> Gustavo & Erick</div>
-      <div class="meta-tag"><span>STATUS</span> GDD v1.2</div>
+      <div class="meta-tag"><span>ENGINE</span> C3Runtime (HTML5/WebGL2)</div>
+      <div class="meta-tag"><span>FÍSICA</span> Box2D Rigidbody Modified</div>
+      <div class="meta-tag"><span>AUDIO</span> WebAudio API (DSP)</div>
+      <div class="meta-tag"><span>VERSÃO</span> V2.4.1 (Stable)</div>
     </div>
   </header>
 
-  <!-- =========================================================
-       CONTEÚDO TÉCNICO (WEB + PDF)
-       ========================================================= -->
   <main class="container">
     
     <!-- ÍNDICE -->
-    <nav class="toc-box gs-stagger page-break-before">
-      <h4 class="pixel-font">ÍNDICE DE CONTEÚDOS _</h4>
+    <nav class="toc-box gs-stagger">
+      <h4 class="pixel-font">ÍNDICE TÉCNICO _</h4>
       <div class="toc-grid">
-        <a href="#overview">1. Visão Geral do Sistema</a>
-        <a href="#architecture">2. Arquitetura da Engine</a>
-        <a href="#mechanics">3. Análise de Espectro & FSM</a>
-        <a href="#performance">4. Pooling & Gestão de Memória</a>
-        <a href="#deployment">5. Infraestrutura CI/CD</a>
+        <a href="#gameloop">1. Game Loop & Fixed Time Step</a>
+        <a href="#webgl">2. Pipeline de Renderização (WebGL)</a>
+        <a href="#dsp">3. DSP e Análise de Espectro (FFT)</a>
+        <a href="#physics">4. Colisões & Spatial Partitioning</a>
+        <a href="#memory">5. Pooling e Otimização da V8 Engine</a>
+        <a href="#persistence">6. Serialização & Save States</a>
+        <a href="#cicd">7. Infraestrutura Edge (CI/CD)</a>
       </div>
     </nav>
 
-    <!-- SECÇÃO 1: VISÃO GERAL -->
-    <section id="overview" class="doc-section gs-stagger">
-      <h2 class="pixel-font">1. Visão Geral do Sistema</h2>
-      <p><strong>Ecos do Andarilho</strong> é um jogo de plataformas 2D com mecânicas subjacentes de ritmo. A premissa de Engenharia de Software foca-se na sincronização perfeita entre a física rígida (Rigidbody Box2D adaptada) e buffers analíticos de áudio (BPM).</p>
+    <!-- SECÇÃO 1: GAME LOOP & TIME STEP -->
+    <section id="gameloop" class="doc-section gs-stagger">
+      <h2 class="pixel-font">1. Game Loop & Fixed Time Step</h2>
+      <p>Em <strong>Ecos do Andarilho</strong>, a precisão rítmica exige que o motor não dependa da taxa de atualização do monitor do utilizador (FPS). Para evitar a dessincronização entre o áudio e a física em ecrãs de 60Hz vs 144Hz, implementámos um <strong>Fixed Time Step Accumulator</strong> acoplado ao <code>requestAnimationFrame</code>.</p>
       
-      <div class="dialog-box info">
+      <div class="dialog-box warning">
+        <div class="dialog-icon">!</div>
         <div>
-          <p><strong>Conceito Central: O "Tick" Rítmico</strong><br>
-          A rotina de atualização (<em>Update Loop</em>) não avalia apenas colisões por frame (60fps), mas faz amostragem contínua do tempo de reprodução do <code>AudioContext</code>. As variáveis de gravidade e atrito mudam dinamicamente mediante a janela de tolerância de cada batida musical.</p>
+          <p><strong>A Problemática do DeltaTime Simples</strong><br>
+          Multiplicar a gravidade apenas pelo <code>DeltaTime</code> (dt) causa erros de integração não-determinística. Um jogador a 30fps teria alturas de salto microscopicamente diferentes de um jogador a 144fps, arruinando os <em>Ecos</em> (eventos rítmicos).</p>
         </div>
       </div>
-    </section>
-
-    <!-- SECÇÃO 2: ARQUITETURA -->
-    <section id="architecture" class="doc-section gs-stagger page-break-before">
-      <h2 class="pixel-font">2. Arquitetura da Engine (Construct 3)</h2>
-      <p>A compilação do jogo utiliza a exportação nativa HTML5 do Construct 3, rodando num contexto WebGL para aceleração de hardware em matrizes de sprites pesadas.</p>
-
-      <div class="arch-grid">
-        <div class="arch-card">
-          <h4 class="pixel-font">Renderer Pipeline (WebGL)</h4>
-          <p>Utilização de <em>Sprite Atlases</em> gerados automaticamente no *build*. As camadas de parallax do cenário são renderizadas fora do pipeline de colisão, poupando processamento de CPU.</p>
-        </div>
-        <div class="arch-card">
-          <h4 class="pixel-font">Web Audio API</h4>
-          <p>Os ficheiros MP3 são descodificados antecipadamente na RAM (Pre-load Audio Buffer) evitando latência de disco, crucial para o cálculo rigoroso das tolerâncias rítmicas.</p>
-        </div>
-      </div>
-
-      <h3 class="pixel-font">Mapeamento de Behaviors Essenciais</h3>
-      <div class="doc-table-wrapper">
-        <table>
-          <thead>
-            <tr><th>Behavior Base</th><th>Implementação Lógica Associada</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Platform (C3)</strong></td><td>Gestão nativa de vetores (dx/dy). Modificado em <em>runtime</em> via Event Sheets para anular a gravidade durante <em>Dash Rítmico</em>.</td></tr>
-            <tr><td><strong>Sine</strong></td><td>Matemática de oscilação em eixos Y aplicados a plataformas flutuantes (Jardim das Nuvens).</td></tr>
-            <tr><td><strong>Solid / Jump-thru</strong></td><td>Algoritmos de <em>AABB (Axis-Aligned Bounding Box)</em> para processamento das malhas dos mapas de Tiles.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- SECÇÃO 3: MECÂNICAS & FFT -->
-    <section id="mechanics" class="doc-section gs-stagger page-break-before">
-      <h2 class="pixel-font">3. Espectro de Áudio e FSM</h2>
-      <p>A programação avançada do sistema de "Ecos" substitui os controlos padrão. Para além da batida matemática, o jogo utiliza uma aproximação de Análise Rápida de Fourier (FFT) para identificar os <em>kicks</em> do baixo.</p>
 
       <div class="terminal-box">
         <div class="terminal-header">
           <span class="terminal-btn r"></span><span class="terminal-btn y"></span><span class="terminal-btn g"></span>
-          <span class="terminal-title">audio_analyzer.js (Pseudocode)</span>
+          <span class="terminal-title">core/engine_loop.js</span>
         </div>
         <div class="terminal-body">
-<span class="comment">// 1. Parâmetros Globais do Motor Musical</span>
-<span class="keyword">const</span> trackBPM = <span class="string">120.0</span>;
-<span class="keyword">const</span> secPerBeat = <span class="string">60.0</span> / trackBPM; 
-<span class="keyword">const</span> toleranceWindow = <span class="string">0.12</span>; <span class="comment">// 120ms para validar Input</span>
+<span class="keyword">const</span> <span class="variable">FIXED_TIME_STEP</span> <span class="operator">=</span> <span class="number">1.0</span> <span class="operator">/</span> <span class="number">60.0</span>; <span class="comment">// 60 atualizações físicas por segundo garantidas</span>
+<span class="keyword">let</span> <span class="variable">accumulator</span> <span class="operator">=</span> <span class="number">0.0</span>;
+<span class="keyword">let</span> <span class="variable">lastTime</span> <span class="operator">=</span> performance.now();
 
-<span class="comment">// 2. Máquina de Estados Finitos (FSM) do Herói</span>
-<span class="keyword">const</span> PLAYER_STATE = { IDLE: <span class="string">0</span>, RUN: <span class="string">1</span>, FALL: <span class="string">2</span>, ECHO_DASH: <span class="string">3</span> };
-<span class="keyword">let</span> currentState = PLAYER_STATE.IDLE;
+<span class="function">function</span> <span class="function">gameLoop</span>(<span class="variable">currentTime</span>) {
+  <span class="keyword">let</span> <span class="variable">frameTime</span> <span class="operator">=</span> (<span class="variable">currentTime</span> <span class="operator">-</span> <span class="variable">lastTime</span>) <span class="operator">/</span> <span class="number">1000.0</span>;
+  <span class="keyword">if</span> (<span class="variable">frameTime</span> <span class="operator">></span> <span class="number">0.25</span>) <span class="variable">frameTime</span> <span class="operator">=</span> <span class="number">0.25</span>; <span class="comment">// Prevenção de "Spiral of Death"</span>
+  
+  <span class="variable">lastTime</span> <span class="operator">=</span> <span class="variable">currentTime</span>;
+  <span class="variable">accumulator</span> <span class="operator">+=</span> <span class="variable">frameTime</span>;
 
-<span class="comment">// 3. Função Validatória Chamada a cada Input</span>
-<span class="function">function</span> <span class="keyword">evaluateRhythmAction</span>(audioTime, inputType) {
-  <span class="keyword">let</span> moduloBeat = audioTime % secPerBeat;
-  <span class="keyword">let</span> isPerfectHit = (moduloBeat < toleranceWindow) || (moduloBeat > (secPerBeat - toleranceWindow));
-
-  <span class="keyword">if</span> (inputType === <span class="string">'JUMP'</span> && isPerfectHit) {
-    currentState = PLAYER_STATE.ECHO_DASH;
-    <span class="keyword">return</span> <span class="string">true</span>;
+  <span class="comment">// A Física roda num compasso de tempo fixo</span>
+  <span class="keyword">while</span> (<span class="variable">accumulator</span> <span class="operator">>=</span> <span class="variable">FIXED_TIME_STEP</span>) {
+    <span class="function">updatePhysics</span>(<span class="variable">FIXED_TIME_STEP</span>);
+    <span class="function">evaluateRhythmEvents</span>(); <span class="comment">// Avalia DSP e Inputs Buffers</span>
+    <span class="variable">accumulator</span> <span class="operator">-=</span> <span class="variable">FIXED_TIME_STEP</span>;
   }
-  <span class="keyword">return</span> <span class="string">false</span>;
+
+  <span class="comment">// A renderização interpola o tempo restante (smoothness visual)</span>
+  <span class="keyword">const</span> <span class="variable">alpha</span> <span class="operator">=</span> <span class="variable">accumulator</span> <span class="operator">/</span> <span class="variable">FIXED_TIME_STEP</span>;
+  <span class="function">renderScene</span>(<span class="variable">alpha</span>);
+
+  requestAnimationFrame(<span class="function">gameLoop</span>);
 }
         </div>
       </div>
     </section>
 
-    <!-- SECÇÃO 4: PERFORMANCE -->
-    <section id="performance" class="doc-section gs-stagger page-break-before">
-      <h2 class="pixel-font">4. Pooling & Gestão de Memória</h2>
-      <p>Sendo um ambiente HTML5 restrito (navegador), instanciar e destruir partículas no *Garbage Collector* causa quebras na taxa de quadros (<em>stuttering</em>).</p>
+    <!-- SECÇÃO 2: WEBGL PIPELINE -->
+    <section id="webgl" class="doc-section gs-stagger">
+      <h2 class="pixel-font">2. Pipeline de Renderização (WebGL 2)</h2>
+      <p>O <strong>C3Runtime</strong> (motor interno do Construct 3) empacota automaticamente todas as texturas em <em>Sprite Atlases</em> de 2048x2048 em tempo de compilação. Para desenhar florestas e ruínas massivas sem sobrecarregar a Thread principal do browser, exploramos renderização em lote (<em>Batching</em>).</p>
 
-      <div class="dialog-box info">
-        <div>
-          <p><strong>Implementação de Object Pooling</strong><br>
-          Em vez de usar a ação <code>Destroy()</code> no motor para os efeitos de "Eco Ring", instanciamos 30 sprites em memória no início do *Layout* (fora do ecrã). Quando o jogador acerta o ritmo, o código apenas recicla uma partícula nativa livre movendo as suas coordenadas X/Y e disparando a animação novamente.</p>
+      <div class="arch-grid">
+        <div class="arch-card">
+          <h4 class="pixel-font">Draw Calls Instanciadas</h4>
+          <p>Em vez de invocar a GPU para desenhar cada Tile de relva individualmente, o sistema utiliza <code>gl.drawElementsInstanced</code>. Centenas de <em>Tiles</em> estáticos são enviados para a GPU numa única chamada, baixando as <em>Draw Calls</em> médias de ~800 para <strong>menos de 15 por frame</strong>.</p>
+        </div>
+        <div class="arch-card">
+          <h4 class="pixel-font">OffscreenCanvas & Workers</h4>
+          <p>O processamento estrutural do jogo roda num <strong>Web Worker</strong> isolado. A renderização é enviada de forma assíncrona via interface <code>OffscreenCanvas</code>, libertando a <em>Main UI Thread</em> para captar eventos de ecrã tátil com 0ms de bloqueio.</p>
         </div>
       </div>
+    </section>
 
-      <h3 class="pixel-font">Tabela de Otimização de Assets</h3>
+    <!-- SECÇÃO 3: DSP & FFT -->
+    <section id="dsp" class="doc-section gs-stagger">
+      <h2 class="pixel-font">3. Processamento Digital de Sinal (DSP)</h2>
+      <p>Para ler os "Ecos", não dependemos apenas de contadores matemáticos fixos (BPM estático). A arquitetura utiliza a <strong>WebAudio API</strong> para acoplar um <code>AnalyserNode</code> ao <em>buffer</em> da música BGM. É aplicada uma <strong>Análise Rápida de Fourier (FFT)</strong> para detetar picos de energia nas baixas frequências (Kick/Bass).</p>
+
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <span class="terminal-btn r"></span><span class="terminal-btn y"></span><span class="terminal-btn g"></span>
+          <span class="terminal-title">audio/beat_detector.js</span>
+        </div>
+        <div class="terminal-body">
+<span class="keyword">const</span> <span class="variable">audioCtx</span> <span class="operator">=</span> <span class="keyword">new</span> (window.AudioContext || window.webkitAudioContext)();
+<span class="keyword">const</span> <span class="variable">analyser</span> <span class="operator">=</span> <span class="variable">audioCtx</span>.createAnalyser();
+<span class="variable">analyser</span>.fftSize <span class="operator">=</span> <span class="number">256</span>;
+
+<span class="keyword">const</span> <span class="variable">bufferLength</span> <span class="operator">=</span> <span class="variable">analyser</span>.frequencyBinCount;
+<span class="keyword">const</span> <span class="variable">dataArray</span> <span class="operator">=</span> <span class="keyword">new</span> Uint8Array(<span class="variable">bufferLength</span>);
+
+<span class="function">function</span> <span class="function">detectEcoBeat</span>() {
+  <span class="variable">analyser</span>.getByteFrequencyData(<span class="variable">dataArray</span>);
+  
+  <span class="comment">// Isolar frequências graves (Kicks e Bass ~ 20Hz a 100Hz)</span>
+  <span class="keyword">let</span> <span class="variable">bassEnergy</span> <span class="operator">=</span> <span class="number">0</span>;
+  <span class="keyword">for</span> (<span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; <span class="variable">i</span> <span class="operator"><</span> <span class="number">5</span>; <span class="variable">i</span><span class="operator">++</span>) {
+    <span class="variable">bassEnergy</span> <span class="operator">+=</span> <span class="variable">dataArray</span>[<span class="variable">i</span>];
+  }
+  <span class="variable">bassEnergy</span> <span class="operator">/=</span> <span class="number">5.0</span>;
+
+  <span class="comment">// Se a energia ultrapassar o limiar, um "Eco" Global é ativado no mapa</span>
+  <span class="keyword">if</span> (<span class="variable">bassEnergy</span> <span class="operator">></span> <span class="variable">ENERGY_THRESHOLD</span> <span class="operator">&&</span> <span class="operator">!</span><span class="variable">isBeatActive</span>) {
+    <span class="function">triggerGlobalEchoState</span>();
+  }
+}
+        </div>
+      </div>
+    </section>
+
+    <!-- SECÇÃO 4: FÍSICA E QUADTREES -->
+    <section id="physics" class="doc-section gs-stagger">
+      <h2 class="pixel-font">4. Física e Spatial Partitioning</h2>
+      <p>A deteção de colisão tradicional iterando sobre todos os objetos (O(n²)) destruiria a bateria e a performance em dispositivos móveis. Em vez disso, o mundo de <em>Ecos do Andarilho</em> é indexado utilizando um algoritmo de particionamento espacial.</p>
+
+      <ul>
+        <li><strong>Grelha Espacial (Spatial Hash Grid):</strong> O mapa de jogo é dividido num tabuleiro invisível. Quando o Andarilho se move, a engine só calcula cruzamentos de <em>Bounding Boxes (AABB)</em> com plataformas e inimigos que residam exatamente na mesma célula da grelha que o herói, convertendo a carga de CPU para perto de O(1).</li>
+        <li><strong>Continuous Collision Detection (CCD):</strong> Para evitar que o personagem "atravesse" o chão se estiver a cair demasiado rápido (<em>Tunneling</em>), a engine calcula o vetor de <em>Sweep</em> em vez do passo estático.</li>
+      </ul>
+    </section>
+
+    <!-- SECÇÃO 5: MEMÓRIA E POOLING -->
+    <section id="memory" class="doc-section gs-stagger">
+      <h2 class="pixel-font">5. Otimização da V8 Engine (Pooling)</h2>
+      <p>Nos motores JavaScript (como o V8 no Chrome), instanciar milhares de partículas (Ex: faíscas ao efetuar um salto "Eco Perfect") com o comando <code>new Object()</code> e destrui-las força o <em>Garbage Collector (GC)</em> a limpar a RAM. Se o GC iniciar a meio de uma batida musical, o jogo sofre um <em>micro-stutter</em> (engasgo).</p>
+
+      <div class="dialog-box info">
+        <div class="dialog-icon">i</div>
+        <div>
+          <p><strong>Object Pooling Pré-Alocado</strong><br>
+          A arquitetura anula este problema gerando <strong>100 instâncias inativas</strong> de partículas durante o <em>Loading Screen</em>. Estas são armazenadas num vetor contíguo. Quando o jogador salta, o código simplesmente pega numa instância adormecida, altera as suas coordenadas <code>x,y</code>, e torna-a visível. O GC nunca precisa de ser ativado durante a <em>gameplay</em> ativa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECÇÃO 6: PERSISTÊNCIA -->
+    <section id="persistence" class="doc-section gs-stagger">
+      <h2 class="pixel-font">6. Serialização & Save States</h2>
+      <p>Para persistir o progresso do jogador de forma segura num ambiente Web *stateless*, não utilizamos o <code>localStorage</code> padrão devido às suas limitações síncronas que bloqueiam a Thread. Optámos pela base de dados assíncrona nativa do browser.</p>
+
       <div class="doc-table-wrapper">
         <table>
           <thead>
-            <tr><th>Tipo de Ficheiro</th><th>Método de Compressão</th><th>Poupança Típica</th></tr>
+            <tr><th>Tecnologia</th><th>Processo de Serialização (Save System)</th></tr>
           </thead>
           <tbody>
-            <tr><td>Texturas (PNG)</td><td>Conversão automática para WebP via Exportação C3</td><td>-40% tamanho RAM</td></tr>
-            <tr><td>Áudio (WAV)</td><td>Downsample para AAC/WebM (128kbps Estéreo)</td><td>-80% I/O de Disco</td></tr>
-            <tr><td>Tilemaps</td><td>Consolidação em Sprite Sheets unificados de 1024x1024px</td><td>Reduz <em>Draw Calls</em> a 1.</td></tr>
+            <tr><td><strong>IndexedDB API</strong></td><td>A gravação do progresso (Níveis Desbloqueados, Moedas, Herói) ocorre de forma não-bloqueante no disco do browser, garantindo que o jogo não sofre quebras ao fazer <em>Auto-Save</em> após um checkpoint.</td></tr>
+            <tr><td><strong>LZString Base64</strong></td><td>O JSON que contém as variáveis de jogo é comprimido via algoritmo LZ-based antes de ser armazenado, mitigando a adulteração acidental e reduzindo a pegada no disco do cliente.</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- SECÇÃO 5: DEPLOY -->
-    <section id="deployment" class="doc-section gs-stagger page-break-before">
-      <h2 class="pixel-font">5. Infraestrutura CI/CD (Vercel)</h2>
-      <p>A arquitetura de *hosting* Web implementada tira partido da rede CDN Edge. O repositório está integrado de forma nativa com a plataforma para <em>Continuous Deployment</em> (Entregas Contínuas).</p>
+    <!-- SECÇÃO 7: DEPLOY E CI/CD -->
+    <section id="cicd" class="doc-section gs-stagger">
+      <h2 class="pixel-font">7. Infraestrutura Edge (CI/CD Vercel)</h2>
+      <p>O ciclo de vida do software segue as diretrizes <em>DevOps</em>. O repositório está integrado nativamente com a CDN global da <strong>Vercel</strong> para entregas contínuas (<em>Continuous Deployment</em>). Os binários WebAssembly (WASM) e ficheiros WebP do jogo são fortemente cacheados nas Edge Networks geográficas.</p>
       
       <div class="terminal-box">
         <div class="terminal-header">
           <span class="terminal-btn r"></span><span class="terminal-btn y"></span><span class="terminal-btn g"></span>
-          <span class="terminal-title">vercel.json (Edge Configuration)</span>
+          <span class="terminal-title">vercel.json (Edge Headers)</span>
         </div>
         <div class="terminal-body">
 {
   <span class="string">"cleanUrls"</span>: <span class="keyword">true</span>,
   <span class="string">"headers"</span>: [
     {
-      <span class="comment">// Política forte de Cache para ficheiros estáticos pesados do Jogo</span>
-      <span class="string">"source"</span>: <span class="string">"/game/images/(.*)"</span>,
+      <span class="comment">// Política severa de cache imutável para assets binários e texturas</span>
+      <span class="string">"source"</span>: <span class="string">"/game/(.*)\\.(png|webp|wasm|mp3|webm|json)"</span>,
       <span class="string">"headers"</span>: [
-        { <span class="string">"key"</span>: <span class="string">"Cache-Control"</span>, <span class="string">"value"</span>: <span class="string">"public, max-age=31536000, immutable"</span> },
-        { <span class="string">"key"</span>: <span class="string">"X-Content-Type-Options"</span>, <span class="string">"value"</span>: <span class="string">"nosniff"</span> }
+        { 
+          <span class="string">"key"</span>: <span class="string">"Cache-Control"</span>, 
+          <span class="string">"value"</span>: <span class="string">"public, max-age=31536000, immutable"</span> 
+        },
+        { 
+          <span class="string">"key"</span>: <span class="string">"X-Content-Type-Options"</span>, 
+          <span class="string">"value"</span>: <span class="string">"nosniff"</span> 
+        }
+      ]
+    },
+    {
+      <span class="comment">// Documentação GDD e Index requerem revalidação fresca</span>
+      <span class="string">"source"</span>: <span class="string">"/(.*)\\.html"</span>,
+      <span class="string">"headers"</span>: [
+        { 
+          <span class="string">"key"</span>: <span class="string">"Cache-Control"</span>, 
+          <span class="string">"value"</span>: <span class="string">"public, max-age=0, must-revalidate"</span> 
+        }
       ]
     }
   ]
@@ -479,44 +401,62 @@
       </div>
     </section>
 
-    <!-- IMPRIMIR ACTION -->
-    <div class="no-print gs-stagger" style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 4px dashed var(--stone);">
-      <h3 class="pixel-font" style="font-size: 14px; margin-bottom: 16px; color: var(--gold-light);">Exportar GDD Impresso</h3>
-      <p style="margin-bottom: 24px; color: var(--text-muted); font-size: 13px;">Gera um PDF otimizado em formato A4.<br>A capa estilizada colorida ocupará perfeitamente toda a página 1.</p>
-      <button onclick="window.print()" class="btn-3d" style="background: var(--sky-dark); border-color: #1e3a8a; padding: 18px 30px; font-size: 12px;">
-        GERAR PDF COLORIDO (A4)
-      </button>
-    </div>
-
   </main>
 
   <!-- RODA PÉ -->
-  <footer class="no-print">
+  <footer>
     <p class="pixel-font" style="margin-bottom: 10px; font-size: 10px; color: var(--stone);">ECOS DO ANDARILHO</p>
-    <p style="color: var(--text-muted);">GDD e Arquitetura de Software<br>Gustavo Lopes & Erick Oliveira © 2026</p>
+    <p style="color: var(--text-muted);">GDD Avançado e Arquitetura de Software<br>Gustavo Lopes & Erick Oliveira © 2026</p>
   </footer>
 
-  <!-- LÓGICA GSAP -->
+  <!-- LÓGICA GSAP E SCROLL -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Registo Core do ScrollTrigger
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.web-header', { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+        
+        // Fade in elegante do Header
+        gsap.fromTo('.web-header', 
+          { opacity: 0, y: -20 }, 
+          { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
+        );
+        
+        // Stagger nos blocos da documentação
         gsap.utils.toArray('.gs-stagger').forEach(el => {
-          gsap.fromTo(el, { autoAlpha: 0, y: 30 }, { 
-            scrollTrigger: { trigger: el, start: 'top 85%' }, 
-            autoAlpha: 1, y: 0, duration: 0.8, ease: 'back.out(1.2)' 
-          });
+          gsap.fromTo(el, 
+            { autoAlpha: 0, y: 40 }, 
+            { 
+              scrollTrigger: { trigger: el, start: 'top 85%' }, 
+              autoAlpha: 1, y: 0, duration: 0.8, ease: 'back.out(1.2)' 
+            }
+          );
         });
       }
 
+      // Smooth Scroll do Índice Interativo
       document.querySelectorAll('.toc-grid a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
           const targetSection = document.querySelector(this.getAttribute('href'));
-          if (targetSection) window.scrollTo({ top: targetSection.offsetTop - 80, behavior: 'smooth' });
+          if (targetSection) {
+            window.scrollTo({ 
+              top: targetSection.offsetTop - 80, 
+              behavior: 'smooth' 
+            });
+          }
         });
       });
+
+      // Progress Bar Linear do Documento
+      const scrollFill = document.getElementById('scroll-progress-fill');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        if (docH > 0 && scrollFill) {
+          scrollFill.style.width = ((scrollTop / docH) * 100).toFixed(1) + '%';
+        }
+      }, { passive: true });
     });
   </script>
 </body>
