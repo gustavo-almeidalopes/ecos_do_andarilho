@@ -1,16 +1,19 @@
 <div align="center">
 
-<img src="./images/ui/capa.png" width="850px" alt="Banner Ecos do Andarilho"/>
-
-<br/>
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=14&pause=1000&color=58A6FF&center=true&vCenter=true&width=1000&lines=UM+JOGO+ONDE+CADA+SALTO+SEGUE+O+RITMO+DA+MÚSICA;PIXEL+ART+%2B+PLATFORMER+%2B+GAMEPLAY+RÍTMICA;CONSTRUCT+3+%7C+HTML5+%7C+MOBILE+SUPPORTED;PROJETO+ACADÊMICO+COM+ESTÉTICA+NEO-RETRO" alt="Typing SVG" />
-
-<br/>
-<br/>
-
 # 🌌 **ECOS DO ANDARILHO**
+
+### 🎮 *Um jogo de plataforma rítmico onde a música guia cada movimento.*
+
+<br/>
+
+<img src="./images/ui/capa.png" width="850" alt="Banner Ecos do Andarilho"/>
+
+<br/>
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=14&pause=1000&color=58A6FF&center=true&vCenter=true&width=1000&lines=UM+JOGO+ONDE+CADA+SALTO+SEGUE+O+RITMO+DA+MÚSICA;PIXEL+ART+%2B+PLATFORMER+%2B+GAMEPLAY+RÍTMICA;CONSTRUCT+3+%7C+HTML5+%7C+MOBILE+SUPPORTED;PROJETO+ACADÊMICO+COM+ESTÉTICA+NEO-RETRO" alt="Typing Animation"/>
+
+</div>
 
 ### 🎮 *Um jogo de plataforma rítmico onde a música guia cada movimento.*
 
