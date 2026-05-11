@@ -555,6 +555,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { passive: true });
 
   // ========================================================
+  // HAMBÚRGUER MOBILE
+  // ========================================================
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navLinksEl = document.getElementById('navLinks');
+  if (hamburgerBtn && navLinksEl) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      navLinksEl.classList.toggle('open');
+    });
+    navLinksEl.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        navLinksEl.classList.remove('open');
+      });
+    });
+  }
+
+  // ========================================================
   // 6. LINK ATIVO NA NAV (IntersectionObserver)
   // ========================================================
   const navLinksTracked = document.querySelectorAll('.nav-links a[href^="#"]');
