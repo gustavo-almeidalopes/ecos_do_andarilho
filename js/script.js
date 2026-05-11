@@ -403,11 +403,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const segments = heroTitle.innerHTML.trim().split(/<br\s*\/?>/i);
     heroTitle.innerHTML = '';
     segments.forEach((segment, idx) => {
-      segment.split('').forEach(char => {
-        const span = document.createElement('span');
-        span.className = 'char';
-        span.textContent = char === ' ' ? ' ' : char;
-        heroTitle.appendChild(span);
+      const words = segment.split(' ');
+      words.forEach((word, wIdx) => {
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
+        word.split('').forEach(char => {
+          const span = document.createElement('span');
+          span.className = 'char';
+          span.textContent = char;
+          wordSpan.appendChild(span);
+        });
+        heroTitle.appendChild(wordSpan);
+        if (wIdx < words.length - 1) {
+          const sp = document.createElement('span');
+          sp.className = 'char';
+          sp.textContent = ' ';
+          heroTitle.appendChild(sp);
+        }
       });
       if (idx < segments.length - 1) heroTitle.appendChild(document.createElement('br'));
     });
