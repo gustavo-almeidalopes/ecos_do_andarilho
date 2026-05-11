@@ -521,8 +521,8 @@ footer { background: var(--brown-dark); padding: clamp(80px, 10vw, 120px) 0 48px
   .nav-wrapper { transform: none; }
 
   .nav-top-row { display: -webkit-flex; display: flex; -webkit-justify-content: space-between; justify-content: space-between; -webkit-align-items: center; align-items: center; width: 100%; margin-bottom: 0; }
-  .nav-top-row .logo { font-size: 11px; color: #FFF; text-shadow: 2px 2px 0 var(--brown-dark); white-space: nowrap; line-height: 1.5; text-align: left; }
-  .nav-top-row .logo .logo-line { display: block; white-space: nowrap; }
+  .nav-top-row .logo { font-size: 11px; color: #FFF; text-shadow: 2px 2px 0 var(--brown-dark); line-height: 1.5; text-align: left; flex-shrink: 0; white-space: normal; }
+  .nav-top-row .logo .logo-line { display: block; white-space: nowrap; overflow-wrap: normal; word-break: keep-all; }
 
   /* Hambúrguer */
   .hamburger-btn { display: -webkit-flex; display: flex; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; background: none; border: none; cursor: pointer; padding: 0; flex-shrink: 0; }
